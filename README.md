@@ -20,7 +20,7 @@ Ionic Docs are in a [separate repo](https://github.com/ionic-team/ionic-docs/). 
 
 ## Deploy
 
-Changes to master are automatically deployed to  [staging.ionicframework.com/](https://staging.ionicframework.com/). Periodically, the Ionic tean will inspect staging and promote it to [ionicframework.com](https://ionicframework.com).
+Changes to master are automatically deployed to  [staging.ionicframework.com/](https://staging.ionicframework.com/). Periodically, the Ionic team will inspect staging and promote it to [ionicframework.com](https://ionicframework.com).
 
 
 ## Community

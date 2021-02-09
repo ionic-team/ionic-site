@@ -80,14 +80,6 @@
     "image": "/img/team/cody-wiseman.png"
   },
   {
-    "name": "Cory LaViska",
-    "dept": "Development",
-    "description": null,
-    "twitter": "https://twitter.com/claviska",
-    "linkedin": null,
-    "image": "/img/team/cory-laviska.jpg"
-  },
-  {
     "name": "Dallas James",
     "dept": "Customer Success",
     "description": null,
@@ -254,14 +246,6 @@
     "twitter": null,
     "linkedin": "https://www.linkedin.com/in/elizabeth-maves-71b82417b",
     "image": "/img/team/liz-maves.jpg"
-  },
-  {
-    "name": "Luke McCullough",
-    "dept": "Development",
-    "description": null,
-    "twitter": "https://twitter.com/lm3m",
-    "linkedin": "https://www.linkedin.com/in/luke-mccullough-2241173",
-    "image": "/img/team/luke-mccullough.png"
   },
   {
     "name": "Maggie Mumper",

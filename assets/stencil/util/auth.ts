@@ -47,6 +47,7 @@ export const login = async (email, password, source, loginEventId ="000006636951
 
     await ret.json();
 
+    window.dataLayer.push({ event: 'login' });
     identify(email);
     trackEvent({ id: loginEventId });
 
@@ -97,8 +98,8 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
       return data;
     }
 
+    window.dataLayer.push({ event: 'sign_up' });
     identify(form.email);
-
     trackEvent({ id: signupEventId });
     
     return data;

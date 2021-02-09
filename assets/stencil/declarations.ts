@@ -4,6 +4,7 @@ declare global {
     DASHBOARD_URL: string;
     _hsq: any[];
     c: (cat, lbl, el?, val?) => void;
+    dataLayer: object[];
     grecaptcha?: any;
   }
 }

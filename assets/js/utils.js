@@ -350,7 +350,7 @@ window.stickyNav = {
     var self = this;
     requestAnimationFrame(function(){
       //header nav height + announcement bar height
-      if (window.scrollY > (70 + 32)) {
+      if (window.scrollY > (70 + 74)) {
         self.show();
       } else {
         self.hide();

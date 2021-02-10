@@ -15,7 +15,10 @@
       })(window,document.getElementById('optimizely'),'optimize-loading','dataLayer',4000,
       {'GTM-TKMGCBC':true});</script> #}
       {{PrismicDOM.RichText.asHtml(announcementBar.data.text)}}
-      <span id="btn-header-announcement">{{announcementBar.data.button_text}}</span>
+      <span id="btn-header-announcement">
+        {{announcementBar.data.button_text}}
+        <span class="arrow"> -&gt;</span>
+      </span>
     </div>
   </div>
 </nav>

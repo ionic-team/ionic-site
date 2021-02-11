@@ -6,15 +6,15 @@
 {% set meta_description = "Ionic is the app development platform for web developers. Build amazing cross platform mobile, web, and desktop apps all with one shared code base and open web standards" %}
 {% set stickyNav = true %}
 {% set cssPath = 'home' %}
-{% set cssVersion = 4 %}
+{% set cssVersion = 5 %}
 
 {% block main %} 
 <div id="ionic-slider">
   <section id="slide-ionic-react" class="container">
     <div class="landing__content">
       <h1>
-        <span class="activateOnScroll">One codebase. </span>
-        <span class="activateOnScroll">Any platform. </span>
+        <span class="activateOnScroll">One codebase.</span>
+        <span class="activateOnScroll">Any platform.</span>
         <span class="activateOnScroll">
           Now in
           <span class="words">
@@ -31,10 +31,23 @@
       </div>
     </div>  
     <div class="landing__img">
-      <img  src="/img/homepage/hero-ionic-react@2x.png"
+      <img  class="react active"
+            src="/img/homepage/hero-ionic-react@2x.png"
             srcset="/img/homepage/hero-ionic-react.png 1x,
                     /img/homepage/hero-ionic-react@2x.png 2x"
-            width="525" height="542">   
+            width="525" height="542">
+      <img  class="vue"
+            loading="lazy"
+            src="/img/homepage/hero-ionic-vue@2x.png"
+            srcset="/img/homepage/hero-ionic-vue.png 1x,
+                    /img/homepage/hero-ionic-vue@2x.png 2x"
+            width="525" height="542">
+      <img  class="angular"
+            loading="lazy"
+            src="/img/homepage/hero-ionic-angular@2x.png"
+            srcset="/img/homepage/hero-ionic-angular.png 1x,
+                    /img/homepage/hero-ionic-angular@2x.png 2x"
+            width="525" height="542">
     </div>
   </section>
 

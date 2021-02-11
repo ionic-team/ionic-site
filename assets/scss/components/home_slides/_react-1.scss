@@ -109,7 +109,6 @@
       position: relative;
       color: #ef4d4d;
       animation-delay: 8s;
-
       opacity: 0;
 
       &::after {
@@ -119,7 +118,6 @@
 
     .vue {
       color: #42b983;
-
       opacity: 0;
 
       &::after {
@@ -247,12 +245,55 @@
   .landing__img {
     flex: 1 1 50%;
     max-width: 524px;
+    min-height: 542px;
+    position: relative;
 
     img {
       width: 100%;
       height: auto;
-      position: relative;
       left: 48px;
+      position: absolute;
+      opacity: 0;
+      animation: homeHeroFadeIn 24s infinite;
+
+      &.active {
+        opacity: 1;
+      }
+
+      &.react {
+        animation-delay: -8s;
+      }
+
+      &.angular {
+        animation-delay: 8s;
+      }
+    }
+
+    @keyframes homeHeroFadeIn {
+      0% {
+        z-index: -1;
+        opacity: 0;
+      }
+      32.3% {
+        z-index: -1;
+        opacity: 0;
+      }
+      39% {
+        z-index: 1;
+        opacity: 1;
+      }
+      65.6% {
+        z-index: 1;
+        opacity: 1;
+      }
+      73% {
+        z-index: 1;
+        opacity: 0;
+      }
+      100% {
+        z-index: -1;
+        opacity: 0;
+      }
     }
   }
 }

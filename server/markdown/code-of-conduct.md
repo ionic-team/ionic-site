@@ -58,4 +58,4 @@ We expect participants to follow these rules at all conference venues and confer
 
 <br/>
 <br/>
-If you are being harassed, notice that someone else is being harassed, or have any other concerns, please email us at a href="mailto:devrel@ionic.io">devrel@ionic.io</a>.
+If you are being harassed, notice that someone else is being harassed, or have any other concerns, please email us at <a href="mailto:devrel@ionic.io">devrel@ionic.io</a>.

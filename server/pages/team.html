@@ -12,7 +12,7 @@ set cssPath = 'team' %} {% block main %}
         <li><a class="about" href="https://ionic.io/about">About Us</a></li>
         <li><a class="values" href="/values">Values</a></li>
         <li><a class="active team" href="/team">Our Team</a></li>
-        <li><a class="jobs" href="/jobs">Jobs</a></li>
+        <li><a class="jobs" href="https://ionic.io/about/jobs">Jobs</a></li>
         <li><a class="contact" href="/contact">Contact</a></li>
       </ul>
     </div>
@@ -31,7 +31,7 @@ set cssPath = 'team' %} {% block main %}
 <section class="container employees">
   {% for e in employees %} {{ macros.employee(e) }} {% endfor %} {% if
   employees.length % 4 != 0 %}
-  <a class="employee apply" href="/jobs">
+  <a class="employee apply" href="https://ionic.io/about/jobs">
     <img class="avatar" src="/img/team/apply.jpg" />
     <hgroup>
       <h4>You?</h4>
@@ -44,7 +44,7 @@ set cssPath = 'team' %} {% block main %}
 <div class="hero text-center">
   <hgroup class="container">
     <h3>Help us build the mobile platform of the future.</h3>
-    <p><a href="/jobs" class="btn white">See available openings</a></p>
+    <p><a href="https://ionic.io/about/jobs" class="btn white">See available openings</a></p>
   </hgroup>
 </div>
 

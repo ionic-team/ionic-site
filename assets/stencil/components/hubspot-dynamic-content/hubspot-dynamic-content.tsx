@@ -1,4 +1,4 @@
-import { Component, Element, Prop, h, State } from '@stencil/core';
+import { Component, Element, Prop, h, State, Host } from '@stencil/core';
 
 @Component({
   tag: 'hubspot-dynamic-content',
@@ -31,13 +31,13 @@ export class HubspotDynamicContent {
 
   render() {
     // console.log('rendering', this.isInList);
-    return ([
-      <div style={{display: this.isInList ? 'none' : 'block'}}>
-        <slot name="default" />
-      </div>,
-      <div style={{display: this.isInList ?  'block' : 'none'}}>
-        <slot name="alternate" />
-      </div>
-    ]);
+    return (
+      <Host>
+        {this.isInList ? 
+          <slot name="default" /> : 
+          <slot name="alternate" />
+        }
+      </Host>
+    );
   }
 }

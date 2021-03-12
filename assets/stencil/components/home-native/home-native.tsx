@@ -62,6 +62,7 @@ export class HomeNative {
           <li class={this.activeTab === key ? 'active' : 'innactive'}>
             <img src={`/img/homepage/icon-native-${key}.png`} 
                  title={key}
+                 loading="lazy"
                  width={this.markup[key].dimensions.x}
                  height={this.markup[key].dimensions.y}/>
           </li>

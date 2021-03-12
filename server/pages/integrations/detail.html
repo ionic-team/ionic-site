@@ -44,9 +44,9 @@
         <div class="integrations-detail__content">
           {{ data.descriptionHTML }}
         </div>
+        {% if data['cta_type'] != 'Support' or (data.links.length and data.links[0]['link-text'] !== null) %}
         <div class="integrations-detail__actions">
           <div class="integrations-detail__actions-inner">
-
             {% if data['cta_type'] === 'Free' %}
               <div class="integrations-detail__cta">
                 <span>Ionic makes it easy to get Started with {{data.name}}</span>
@@ -72,6 +72,7 @@
           </div>
 
         </div>
+        {% endif %}
       </section>
       {% if data['cta_type'] === 'Sales' or data['cta_type'] === 'Support' %}
         <section class="integrations-detail__form" id="cta-form">

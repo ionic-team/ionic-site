@@ -633,7 +633,7 @@
     top: 20px;
 
     h5 {
-      margin-top: 38px;
+      margin-top: 0;
       color: #73849a;
       font-size: 10px;
       text-transform: uppercase;
@@ -681,6 +681,10 @@
       width: 100%;
       font-weight: 700;
       font-size: 15px;
+    }
+
+    + h5 {
+      margin-top: 38px;
     }
   }
 

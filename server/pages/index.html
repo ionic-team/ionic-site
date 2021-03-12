@@ -8,6 +8,13 @@
 {% set cssPath = 'home' %}
 {% set cssVersion = 5 %}
 
+{% block header_includes %}
+<link rel="preconnect" href="https://images.prismic.io">
+<link rel="preconnect" href="https://js.hsforms.net">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+{% endblock %} 
+
 {% block main %} 
 <div id="ionic-slider">
   <section id="slide-ionic-react" class="container">
@@ -32,21 +39,21 @@
     </div>  
     <div class="landing__img">
       <img  class="react active"
-            src="/img/homepage/hero-ionic-react@2x.png"
-            srcset="/img/homepage/hero-ionic-react.png 1x,
-                    /img/homepage/hero-ionic-react@2x.png 2x"
+            src="https://images.prismic.io/ionicframeworkcom/13ff7b23-d3b5-400f-98c3-3b31f2912743_hero-ionic-react%402x.png?auto=compress,format"
+            srcset="https://images.prismic.io/ionicframeworkcom/c38fc467-0fcf-4afc-ade4-6337502ba236_hero-ionic-react.png?auto=compress,format 1x,
+                    https://images.prismic.io/ionicframeworkcom/13ff7b23-d3b5-400f-98c3-3b31f2912743_hero-ionic-react%402x.png?auto=compress,format 2x"
             width="525" height="542">
       <img  class="vue"
             loading="lazy"
-            src="/img/homepage/hero-ionic-vue@2x.png"
-            srcset="/img/homepage/hero-ionic-vue.png 1x,
-                    /img/homepage/hero-ionic-vue@2x.png 2x"
+            src="https://images.prismic.io/ionicframeworkcom/bbb24dd3-f799-4a98-b840-f53b13ceaa06_hero-ionic-vue%402x.png?auto=compress,format"
+            srcset="https://images.prismic.io/ionicframeworkcom/31c87982-d0c2-4322-876c-ecb4b59af7c9_hero-ionic-vue.png?auto=compress,format 1x,
+                    https://images.prismic.io/ionicframeworkcom/bbb24dd3-f799-4a98-b840-f53b13ceaa06_hero-ionic-vue%402x.png?auto=compress,format 2x"
             width="525" height="542">
       <img  class="angular"
             loading="lazy"
-            src="/img/homepage/hero-ionic-angular@2x.png"
-            srcset="/img/homepage/hero-ionic-angular.png 1x,
-                    /img/homepage/hero-ionic-angular@2x.png 2x"
+            src="https://images.prismic.io/ionicframeworkcom/99b1d5e6-4a0a-4d8f-a45f-521f0643d8ac_hero-ionic-angular%402x.png?auto=compress,format.png"
+            srcset="https://images.prismic.io/ionicframeworkcom/8477a3bc-f092-4f87-899d-85569bada39e_hero-ionic-angular.png?auto=compress,format 1x,
+                    https://images.prismic.io/ionicframeworkcom/99b1d5e6-4a0a-4d8f-a45f-521f0643d8ac_hero-ionic-angular%402x.png?auto=compress,format 2x"
             width="525" height="542">
     </div>
   </section>

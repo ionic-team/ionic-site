@@ -85,6 +85,7 @@ export class HomeComponents {
             <iframe srcdoc={this.ionicInjector(this.markup[key].src)}
                     frameborder="0"
                     scrolling="no"
+                    loading="lazy"
                     onLoad={e => this.resizeIframe(e.target)}></iframe>
           </li>
         ))}

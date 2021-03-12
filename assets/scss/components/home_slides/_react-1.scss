@@ -93,9 +93,8 @@
     .react {
       color: #42ccff;
       animation-delay: -8s;
-
+      position: relative;
       opacity: 1;
-      transform: translateY(10px);
 
       // transition: opacity .2s, transform .2s;
       // transition-delay: 8s;
@@ -106,7 +105,6 @@
     }
 
     .angular {
-      position: relative;
       color: #ef4d4d;
       animation-delay: 8s;
       opacity: 0;

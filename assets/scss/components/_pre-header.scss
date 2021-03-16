@@ -409,7 +409,7 @@
     padding: 0;
 
     .container > div {
-      min-height: 74px;
+      min-height: 72px;
 
       display: flex;
       align-items: center;
@@ -420,6 +420,8 @@
       font-weight: bold;
       font-size: 16px;
       line-height: 19px;
+      letter-spacing: -0.32px;
+      margin-top: -1px;
 
       color: #CAD3E1;
 
@@ -432,7 +434,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 8.5px 12px;
+      padding: 8px 12px 10px;
+      margin-left: 32px;
+      border-radius: 1000;
+      letter-spacing: normal;
 
       font-weight: 600;
       font-size: 13px;
@@ -448,6 +453,8 @@
 
       .arrow {
         letter-spacing: 0;
+        margin-left: -1px;
+        margin-right: 1px;
       }
     }
   }

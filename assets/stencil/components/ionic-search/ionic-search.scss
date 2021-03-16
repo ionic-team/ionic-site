@@ -49,7 +49,7 @@ ionic-search {
 
   .search-static {
     left: 15px;
-    z-index: 2;
+    z-index: 12;
     opacity: 0;
     transform: translate3d(0, -25px, 0);
     transition: .4s transform cubic-bezier(0.23, 1, 0.32, 1), .1s opacity;
@@ -57,7 +57,7 @@ ionic-search {
 
   .close {
     right: 11px;
-    z-index: 2;
+    z-index: 12;
     opacity: 0;
     pointer-events: none;
     transition: .3s opacity;
@@ -76,7 +76,7 @@ ionic-search {
     padding-right: 40px;
     outline: none;
     border: none;
-    z-index: 2;
+    z-index: 12;
     background: white;
     border-radius: 6px;
     padding: 14px 30px 14px 41px;
@@ -166,7 +166,7 @@ ionic-search {
     left: calc(50% - 330px);
     width: 660px;
     top: 10px;
-    z-index: 1;
+    z-index: 12;
     padding-top: 2px;
     pointer-events: none;
     transition: opacity 0.2s linear;
@@ -219,6 +219,7 @@ ionic-search {
     &.active {
       opacity: 1;
       pointer-events: all;
+      z-index: 11;
     }
   }
 
@@ -251,7 +252,7 @@ ionic-search {
       bottom: 0;
       padding: 60px 12px 48px;
       position: fixed;
-      z-index: 3;
+      z-index: 13;
       background: white;
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
@@ -282,7 +283,7 @@ ionic-search {
 
     .searching {
       top: 113px;
-      z-index: 3;
+      z-index: 13;
       animation: ionic-search-scan-mobile 1s ease-in-out infinite;
     }
 
@@ -300,7 +301,7 @@ ionic-search {
     .search-static {
       transform: none;
       opacity: 1;
-      z-index: 3;
+      z-index: 13;
       top: 71px;
       left: 22px;
     }

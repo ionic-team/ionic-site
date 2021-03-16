@@ -1,9 +1,9 @@
 <nav class="mobile-nav closed">
   <ionic-search mobile="true">
     <ul>
-      <li><a href="https://ionic.io/appflow" rel="noopener">Appflow</a></li>
-      <li><a href="/getting-started">Getting Started</a></li>
-      <li><a href="/docs">Docs</a></li>
+      <li class="mobile-nav__menuitem"><a href="https://ionic.io/appflow" rel="noopener">Appflow</a></li>
+      <li class="mobile-nav__menuitem"><a href="/getting-started">Getting Started</a></li>
+      <li class="mobile-nav__menuitem"><a href="/docs">Docs</a></li>
     </ul>
   </ionic-search>
 
@@ -26,79 +26,135 @@
 
     <div class="mobile-nav__wrapper">
       <a href="/" class="mobile-nav__logo">
-        <svg width="32px" height="32px" viewBox="0 0 64 64">
-          <g>
-            <path
-              d="M31.9135135,17.5135135 C23.9135135,17.5135135 17.427027,24 17.427027,32 C17.427027,40 23.9135135,46.4864865 31.9135135,46.4864865 C39.9135135,46.4864865 46.4,40 46.4,32 C46.3567568,24 39.8702703,17.5135135 31.9135135,17.5135135 Z"
-            ></path>
-            <circle cx="52.6702703" cy="12.1945946" r="6.61621622"></circle>
-            <path
-              d="M60.8,18.8108108 L60.5405405,18.2054054 L60.1081081,18.7243243 C59.027027,19.9351351 57.6432432,20.8864865 56.1297297,21.4486486 L55.6972973,21.6216216 L55.8702703,22.0540541 C57.2108108,25.2108108 57.8594595,28.5837838 57.8594595,32 C57.8594595,46.3135135 46.227027,57.9891892 31.8702703,57.9891892 C17.5135135,57.9891892 5.92432432,46.3135135 5.92432432,32 C5.92432432,17.6864865 17.5567568,6.01081081 31.9135135,6.01081081 C35.8054054,6.01081081 39.5243243,6.87567568 43.027027,8.51891892 L43.4162162,8.69189189 L43.5891892,8.25945946 C44.2378378,6.74594595 45.2324324,5.44864865 46.5297297,4.41081081 L47.0486486,3.97837838 L46.4432432,3.67567568 C41.9027027,1.34054054 37.0162162,0.12972973 31.8702703,0.12972973 C14.3567568,0.12972973 0.0864864865,14.4 0.0864864865,31.9135135 C0.0864864865,49.427027 14.3567568,63.6972973 31.8702703,63.6972973 C49.3837838,63.6972973 63.6540541,49.427027 63.6540541,31.9135135 C63.6540541,27.4162162 62.7027027,23.0054054 60.8,18.8108108 Z"
-            ></path>
-          </g>
-        </svg>
+        {% include '_includes/svg/ionic-framework.svg' %}
       </a>
 
       <ul class="mobile-nav__menu">
-        <h6>Platform</h6>
-        <li class="mobile-nav__menuitem enterprise">
-          <a id="btn-header-businesses-enterprise-mobile" href="/enterprise"
-            >Enterprise</a
-          >
+        <h6>Docs</h6>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/docs/intro/cli"
+             class="dropdown-menu__text--l3 icon--installation">
+            Installation
+          </a>
         </li>
-        <li class="mobile-nav__menuitem pro">
-          <a id="btn-header-products-mobile" href="https://ionic.io/appflow" rel="noopener">Appflow</a>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/docs/components"
+             class="dropdown-menu__text--l3 icon--ui-components">
+            UI Components
+          </a>
         </li>
-        <li class="mobile-nav__menuitem pricing">
-          <a id="btn-header-pricing-mobile" href="/pricing">Pricing</a>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/docs/native"
+             class="dropdown-menu__text--l3 icon--native-apis">
+            Native APIs
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/docs/angular/overview"
+             class="dropdown-menu__text--l3 icon--angular">
+            Angular
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/react"
+             class="dropdown-menu__text--l3 icon--react">
+            React
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/vue"
+             class="dropdown-menu__text--l3 icon--vue">
+            Vue
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/docs/cli"
+             class="dropdown-menu__text--l3 icon--cli">
+            CLI
+          </a>
         </li>
 
-        <h6>Resources</h6>
-        <li class="mobile-nav__menuitem framework-docs">
-          <a id="btn-header-developers-framework-docs-mobile" href="/docs/"
-            >Documentation</a
-          >
-        </li>
+        <h6>Tools</h6>
         <li class="mobile-nav__menuitem">
-          <a href="/resources">Resource Center</a>
-        </li>
-        <li class="mobile-nav__menuitem">
-          <a href="/community">Community</a>
-        </li>
-        <li class="mobile-nav__menuitem">
-          <a
-            id="btn-header-ecosystem-blog-mobile"
-            href="https://blog.ionicframework.com/"
-            >Blog</a
-          >
-        </li>
-
-        <h6>Solutions</h6>
-        <li class="mobile-nav__menuitem">
-          <a href="/integrations">Integrations</a>
+          <a href="https://ionic.io/appflow"
+             rel="noopener"
+             class="dropdown-menu__text--l3 icon--appflow">
+            Appflow
+          </a>
         </li>
         <li class="mobile-nav__menuitem">
           <a href="https://ionic.io/products/identity-vault"
-            >Biometric Sign in</a
-          >
+             class="dropdown-menu__text--l3 icon--identity-vault">
+            Identity Vault
+          </a>
         </li>
         <li class="mobile-nav__menuitem">
           <a href="https://ionic.io/products/auth-connect"
-            >User Authentication</a
-          >
+             class="dropdown-menu__text--l3 icon--auth-connect">
+            Auth Connect
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionic.io/products/secure-storage"
+             class="dropdown-menu__text--l3 icon--secure-storage">
+            Secure Storage
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="https://ionicframework.com/integrations"
+             class="dropdown-menu__text--l3 icon--integrations">
+            Integrations
+          </a>
+        </li>
+
+        <h6>Ecosystem</h6>
+        <li class="mobile-nav__menuitem"><a href="/blog/">Blog</a></li>
+        <li class="mobile-nav__menuitem">
+          <a href="/community" 
+             class="dropdown-menu__text--l3 icon--hub">
+            Community
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="/trusted-partners" 
+             class="dropdown-menu__text--l3 icon--trusted-partners">
+            Trusted Partners
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="https://forum.ionicframework.com/"
+             class="dropdown-menu__text--l3 icon--forum">
+            Forum
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="/resources"
+             class="dropdown-menu__text--l3 icon--resources">
+            Resources
+          </a>
         </li>
 
         <h6>Get Help</h6>
         <li class="mobile-nav__menuitem">
-          <a id="btn-header-support-technical-support-mobile" href="/support/"
-            >Support</a
-          >
+          <a href="https://ionic.io/support" 
+             class="dropdown-menu__text--l3 icon--help-center">
+            Help Center
+          </a>
         </li>
         <li class="mobile-nav__menuitem">
-          <a href="https://ionic.io/advisory">Advisory</a>
+          <a href="/enterprise/support" 
+             class="dropdown-menu__text--l3 icon--enterprise">
+            Enterprise Support
+          </a>
         </li>
         <li class="mobile-nav__menuitem">
-          <a href="/enterprise/training">Training</a>
+          <a href="https://ionic.io/advisory" 
+             class="dropdown-menu__text--l3 icon--advisory-services">
+            Advisory Services
+          </a>
+        </li>
+        <li class="mobile-nav__menuitem">
+          <a href="/enterprise">Enterprise</a>
         </li>
 
         <li class="mobile-nav__social">

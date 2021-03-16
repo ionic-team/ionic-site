@@ -390,7 +390,7 @@
 
           &::before,
           &::after {
-            background: url('/img/ico-nav.png?1') 0 0 no-repeat;
+            background: url('/img/ico-nav.png?3') 0 0 no-repeat;
             background-size: 20px;
             height: 20px;
             width: 20px;
@@ -398,38 +398,35 @@
             position: absolute;
             top: 9px;
             left: 30px;
+
+            @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+              background-image: url('/img/ico-nav@2x.png?3');
+              background-size: 20px;
+            }
           }
+
 
           @include hoverSprite(
             'icon--enterprise'
-            'icon--advisory' // remove
-            'icon--training' // remove
-            'icon--docs' // remove
             'icon--installation'
             'icon--ui-components'
             'icon--native-apis'
-            'icon--deployment' // remove
+            'icon--deployment' // unused
             'icon--cli'
             'icon--hub'
-            'icon--slack' // remove
-            'icon--youtube' // remove
-            'icon--github' // remove
-            'icon--twitter' // remove
             'icon--resources'
             'icon--help-center'
             'icon--trusted-partners'
             'icon--forum'
-            'icon--cross-platform-dev' // remove
-            'icon--progressive-web-apps' // remove
-            'icon--continuous-delivery' // remove
-            'icon--identity-vault' // update?
-            'icon--auth-connect' // update?
-            'icon--offline-storage' //update?
-            'icon--why-ionic' // remove
-            'icon--customers' // remove
-            'icon--appflow' // update
+            'icon--identity-vault' 
+            'icon--auth-connect' 
+            'icon--secure-storage'
+            'icon--appflow' 
             'icon--react'
             'icon--angular'
+            'icon--vue'
+            'icon--integrations'
+            'icon--advisory-services'
           , 20);
         }
 

@@ -1,12 +1,12 @@
 .navbar-default {
   background: linear-gradient(to right, #347eff, #1ea3ff);
   font-family: $font-family-inter;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   position: relative;
-  padding-top: 20px;
+  padding-top: 18px;
   border-radius: 0;
   margin-bottom: 0;
-  min-height: 32px;
+  min-height: 30px;
   z-index: 999;
   border: 0;
 
@@ -61,12 +61,13 @@
   .navbar__divider {
     border-right: 1px solid #CED6E0;
     height: 2em;
-    margin: 0 12px;
-  }
+    margin: 1px 12px 0;
+    display: inline-block;
 
-  .navbar__divider--finale ~ li a {
-    padding-right: 10px;
-    padding-left: 10px;
+    &.navbar__divider--finale ~ li > a {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
   }
 
   &.light {
@@ -143,10 +144,10 @@
 
       > a {
         color: white;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         margin: 0;
-        padding: 6px 12px;
+        padding: 5px 12px;
         letter-spacing: -.01em;
         transition: 0.2s color;
         border-top: none;
@@ -172,8 +173,12 @@
           border: 0;
         }
 
-        path {
+        .social path {
           fill: currentColor;
+        }
+
+        path {
+          transition: 0.3s fill;
         }
 
         &:hover {
@@ -201,14 +206,13 @@
         a {
           background-color: rgba(white, 1);
           vertical-align: middle;
-          padding: 10px;
+          padding: 7.5px 12px 8.5px;
           border-radius: 8px;
-          color: #4a8bfc;
+          color: #3880FF;
           letter-spacing: -0.03em;
           line-height: 16px;
           font-family: $font-family-inter;
-          font-weight: 600;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+          font-weight: 500;
           margin-right: 0;
           margin-left: 16px;
           transition: 0.3s box-shadow, 0.3s background;
@@ -398,32 +402,32 @@
 
           @include hoverSprite(
             'icon--enterprise'
-            'icon--advisory'
-            'icon--training'
-            'icon--docs'
+            'icon--advisory' // remove
+            'icon--training' // remove
+            'icon--docs' // remove
             'icon--installation'
             'icon--ui-components'
             'icon--native-apis'
-            'icon--deployment'
+            'icon--deployment' // remove
             'icon--cli'
             'icon--hub'
-            'icon--slack'
-            'icon--youtube'
-            'icon--github'
-            'icon--twitter'
+            'icon--slack' // remove
+            'icon--youtube' // remove
+            'icon--github' // remove
+            'icon--twitter' // remove
             'icon--resources'
             'icon--help-center'
             'icon--trusted-partners'
             'icon--forum'
-            'icon--cross-platform-dev'
-            'icon--progressive-web-apps'
-            'icon--continuous-delivery'
-            'icon--biometric-sign-in'
-            'icon--user-authentication'
-            'icon--offline-storage'
-            'icon--why-ionic'
-            'icon--customers'
-            'icon--platform'
+            'icon--cross-platform-dev' // remove
+            'icon--progressive-web-apps' // remove
+            'icon--continuous-delivery' // remove
+            'icon--identity-vault' // update?
+            'icon--auth-connect' // update?
+            'icon--offline-storage' //update?
+            'icon--why-ionic' // remove
+            'icon--customers' // remove
+            'icon--appflow' // update
             'icon--react'
             'icon--angular'
           , 20);
@@ -660,13 +664,21 @@
       .navbar-nav ionic-search ion-icon {
         color: #35404E;
 
-        path {
+        .social path {
           fill: #B2BECD;
         }
 
+        .chevron path {
+          fill: #2D4665
+        }
 
         &:hover {
           color: $blue;
+
+          .chevron path,
+          .social path {
+            fill: $blue;
+          }
         }
       }
 

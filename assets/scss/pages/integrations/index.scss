@@ -581,20 +581,30 @@
     h4,
     h5,
     h6 {
-      font-size: 16px;
+      font-size: 20px;
       font-weight: 600;
+
+      margin-block-start: 3rem;
+      margin-block-end: 1rem;
+
+      &:first-child {
+        margin-block-start: 0;
+      }
     }
 
     p,
     ul {
       font-size: 14px;
-      line-height: 1.6;
+      line-height: 1.8;
       color: #637696;
-      margin-bottom: 40px;
 
       &:last-child {
         margin-bottom: 0;
       }
+    }
+    
+    p + p {
+      margin-block-start: 1rem;
     }
 
     ul {

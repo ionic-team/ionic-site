@@ -339,7 +339,7 @@ window.stickyNav = {
     if (this.navBar.className.indexOf('enterprise') > -1) {
       this.stickyNavBar.classList.add('enterprise');
     }
-    this.stickyNavBar.appendChild(this.navBar.querySelector('.container').cloneNode(true));
+    this.stickyNavBar.appendChild(this.navBar.querySelector('.wrapper').cloneNode(true));
     this.stickyNavBar.style.visibility = 'hidden';
     document.body.appendChild(this.stickyNavBar);
     document.body.classList.add('body-sticky-nav');

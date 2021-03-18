@@ -58,6 +58,11 @@ module.exports = {
         description: 'Ionic provides integrations with authentication technology. View all the authentication solutions you can integrate in your Ionic development projects.'
       },
       {
+        name: 'CMS',
+        slug: 'cms',
+        description: 'Ionic provides integrations for content management systems. View all the CMS\'s you can integrate into your Ionic development projects.'
+      },
+      {
         name: 'Databases',
         slug: 'databases',
         description: 'Ionic provides integrations with your favorite database development solutions. View all the database solutions you can integrate in your Ionic development projects.'

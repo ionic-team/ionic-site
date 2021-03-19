@@ -1,3 +1,6 @@
+@import '../vars';
+@import '../mixins';
+
 #page-community {
   img {
     width: auto;
@@ -32,11 +35,11 @@
     background-size: cover, 100%;
     padding-top: 226px;
     margin-top: -110px;
-    will-change: trasnform;
+    will-change: transform;
 
     hgroup {
       max-width: 768px;
-      will-change: trasnform;
+      will-change: transform;
 
       li {
         @media (max-width: $screen-xs-max) {
@@ -305,23 +308,13 @@
           transition: box-shadow 0.1s ease, transform 0.1s ease;
         }
 
-        &::after {
-          background: url("/img/community/flags.png") 0 0 no-repeat;
-          background-size: 48px;
+        img {
           position: absolute;
           left: 11px;
           top: calc(50% - 24px);
           height: 48px;
           width: 48px;
-          content: "";
         }
-
-        @include sprite(
-          "uk" "ch" "de" "il" "us" "br" "nl" "es" "ams" "in" "yvr" "tr" "au"
-            "dk" "hu" "co" "jp" "ug" "hk" "ng" "tz" "th",
-          48,
-          "::after"
-        );
 
         &:hover {
           transform: translateY(-1px);
@@ -439,13 +432,9 @@
       position: relative;
       margin-bottom: 55px;
 
-      &::before,
-      &::after {
+      &::before {
         content: "";
         position: absolute;
-      }
-
-      &::before {
         top: 0;
         right: 0;
         left: 0;
@@ -453,30 +442,24 @@
         border-radius: 8px;
         pointer-events: none;
         box-shadow: 0 4px 8px rgba(0, 8, 24, 0.08),
-          0px 8px 32px rgba(0, 8, 24, 0.1);
+                    0px 8px 32px rgba(0, 8, 24, 0.1);
         transition: 0.2s box-shadow ease-out, 0.2s transform ease-out;
       }
 
-      &::after {
+      img {
+        position: absolute;
         top: -20px;
         right: calc(50% - 45px);
-        background: url("/img/community/community-leaders-avatars.png") 0 0
-          no-repeat;
-        background-size: 90px;
         height: 90px;
         width: 90px;
+        border-radius: 1000px;
+        box-shadow: 1px 2px 4px rgba(0,0,0,.2);
       }
-
-      @include sprite(
-        "simon" "josh" "jorge" "veni" "ashteya" "paul" "sani" "leif" "david"
-          "chris" "dayana" "aaron",
-        90,
-        "::after"
-      );
 
       &:hover::before {
         box-shadow: 0 2px 8px rgba(0, 8, 24, 0.08),
-          0px 8px 32px rgba(0, 8, 24, 0.1), 0 8px 18px rgba(0, 8, 24, 0.1);
+                    0px 8px 32px rgba(0, 8, 24, 0.1), 
+                    0 8px 18px rgba(0, 8, 24, 0.1);
       }
     }
 
@@ -617,19 +600,18 @@
         display: block;
         position: relative;
 
-        &::before {
-          background: url("/img/community/social-icons.png") 0 0 no-repeat;
-          background-size: 70px;
+        img {
+          box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+          border-radius: 1000px;
           height: 70px;
           width: 70px;
           position: absolute;
-          content: "";
           top: calc(50% - 33px);
           left: -2px;
+          cursor: pointer;
           transition: 0.2s transform ease-out;
           backface-visibility: hidden;
           transform: translateX(0);
-          outline: 1px solid transparent;
         }
 
         &:hover {
@@ -641,18 +623,11 @@
             color: darken(#6c7e95, 15);
           }
 
-          &::before {
+          img {
             transform: translateX(2px);
           }
         }
       }
-
-      @include sprite(
-        "slack" "forum" "twitter" "github" "so" "facebook" "youtube" "blog"
-          "medium",
-        70,
-        " a::before"
-      );
 
       strong {
         transition: 0.2s color ease;
@@ -912,7 +887,7 @@
           bottom: 0;
           left: 0;
           content: "";
-          background: #3880ff;
+          background: var(--card-bg-color);
           border-radius: 8px;
           transition: 0.2s transform ease;
         }
@@ -945,28 +920,6 @@
         right: 28px;
         letter-spacing: -0.01em;
         line-height: 1.4em;
-      }
-
-      &:nth-child(2) a::before {
-        background: #287ea1;
-      }
-      &:nth-child(3) a::before {
-        background: #da5b70;
-      }
-      &:nth-child(4) a::before {
-        background: #95b251;
-      }
-      &:nth-child(5) a::before {
-        background: #30aeeb;
-      }
-      &:nth-child(6) a::before {
-        background: #4a628a;
-      }
-      &:nth-child(7) a::before {
-        background: #8d5ce3;
-      }
-      &:nth-child(8) a::before {
-        background: #f48f63;
       }
     }
   }

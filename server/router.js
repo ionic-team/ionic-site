@@ -52,7 +52,7 @@ module.exports = {
     .get('/books/rethinking-low-code', (_, res) => res.render('books/rethinking-low-code'))
 
     .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
-    .get('/community', (_, res) => res.render('community'))
+    .get('/community', getPrismicAPI, (req, res, next) => getSingle(req, res, next, 'framework_community', 'community'))
     .get('/contact', (_, res) => res.render('contact'))
     .get('/contributors', (_, res) => res.render('contributors'))
     .get('/covid-19', (_, res) => markdown(res, 'corona'))

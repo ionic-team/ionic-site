@@ -690,7 +690,7 @@ $angular-red-hover: #F9DEDE;
     margin-block-start: 10rem;
     margin-block-end: 10rem;
 
-    background-color: $angular-red-3;
+    background-color: $angular-red-2;
     box-shadow: 0px 16px 32px -2px rgba(0, 0, 0, 0.1),
       0px 8px 16px -2px rgba(0, 0, 0, 0.06);
     border-radius: 24px;
@@ -730,7 +730,7 @@ $angular-red-hover: #F9DEDE;
       max-width: calc(100% - 2rem);
       width: 27.375rem;
 
-      background: $angular-red-2;
+      background: #1C2B3E;
       border-radius: 16px;
       padding-inline-start: clamp(1rem, 6vw, 2.375rem);
       padding-inline-end: clamp(1rem, 4vw, 2.375rem);
@@ -743,7 +743,7 @@ $angular-red-hover: #F9DEDE;
         line-height: 160%;
         letter-spacing: -0.06em;
 
-        background: $angular-red-2;
+        background: #1C2B3E;
         border: none;
         margin: 0;
         color: #fff;

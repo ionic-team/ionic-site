@@ -5,6 +5,9 @@ $angular-red-1: #DD0031;
 $angular-red-2: #C3002F;
 $angular-red-3: #F70037;
 
+$angular-red-button: #FEEAEB;
+$angular-red-hover: #F9DEDE;
+
 :root {
   font-size: 16px;
 }
@@ -117,13 +120,14 @@ $angular-red-3: #F70037;
   }
   .secondary-btn {
     @extend %btn;
-    background: #e6f5ef;
+    background: $angular-red-button;
     color: $angular-red-1;
 
     &:hover,
     &:active,
     &:focus {
-      background: #edf7f2;
+      background: $angular-red-hover;
+
     }
   }
 
@@ -229,14 +233,14 @@ $angular-red-3: #F70037;
         text-transform: uppercase;
 
         color: $angular-red-1;
-        background: #e3faf1;
+        background: $angular-red-button;
 
         padding: 0.5rem 1rem;
 
         &:hover,
         &:active,
         &:focus {
-          background: #edf7f2;
+          background: $angular-red-hover;
         }
       }
     }
@@ -253,7 +257,7 @@ $angular-red-3: #F70037;
     position: relative;
     background-color: #fbfcfd;
     color: white;
-    background-image: url("/img/vue/vue-cta-bg.png");
+    background-image: url("/img/angular/ng-cta-bg.png");
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position: center bottom;
@@ -469,17 +473,17 @@ $angular-red-3: #F70037;
         letter-spacing: -0.02em;
 
         padding: 0.53125rem 0.75rem;
-        background: #e8faf4;
+        background: $angular-red-button;
         border-radius: 100px;
 
-        color: #20bd76;
+        color: $angular-red-3;
 
         transition: background-color 0.2s ease-out;
 
         &:hover,
         &:active,
         &:focus {
-          background: #edf7f2;
+          background: $angular-red-hover;
         }
       }
     }

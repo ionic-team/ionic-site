@@ -27,11 +27,11 @@ export class AngularComponents {
     }, 50);
   }
 
-  renderCode = (code) => {
+  renderCode = (code: string, lang: string) => {
     return (
       <pre>
         <code
-          innerHTML={Prism.highlight(code, Prism.languages.html, 'html')}
+          innerHTML={Prism.highlight(code, Prism.languages[lang], lang)}
         ></code>
       </pre>
     );
@@ -71,7 +71,7 @@ export class AngularComponents {
                 onLoad={(e) => this.resizeIframe(e.target)}
               ></iframe>
               {this.activeView === 'code'
-                ? this.renderCode(this.markup[key].display)
+                ? this.renderCode(this.markup[key].display, this.markup[key].lang)
                 : null}
             </li>
           ))}
@@ -95,6 +95,7 @@ export class AngularComponents {
 
   markup = {
     card: {
+      lang: 'html',
       display: `
   <ion-card>
     <ion-img src="/assets/myImg.png"></ion-img>
@@ -170,8 +171,8 @@ export class AngularComponents {
             </ion-card-content>
           </ion-card>`,
     },
-
     lists: {
+      lang: 'html',
       display: `
   <ion-list>
     <ion-item *ngFor="let album of albums">
@@ -246,8 +247,8 @@ export class AngularComponents {
           </ion-content>
         </ion-app>`,
     },
-
     actionSheet: {
+      lang: 'js',
       display: `@Component({
   selector: 'app-home',
   template: \`

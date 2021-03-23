@@ -5,13 +5,17 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TabType } from "./components/angular-components/angular-components";
 import { SignupForm } from "./util/auth";
-import { TabType } from "./components/react-capacitor/react-capacitor";
-import { TabType as TabType1 } from "./components/react-components/react-components";
-import { TabType as TabType2 } from "./components/vue-components/vue-components";
+import { TabType as TabType1 } from "./components/react-capacitor/react-capacitor";
+import { TabType as TabType2 } from "./components/react-components/react-components";
+import { TabType as TabType3 } from "./components/vue-components/vue-components";
 export namespace Components {
     interface AdditionalResources {
         "page": string;
+    }
+    interface AngularComponents {
+        "tab": TabType;
     }
     interface AuthConnectPromo {
     }
@@ -154,6 +158,12 @@ declare global {
     var HTMLAdditionalResourcesElement: {
         prototype: HTMLAdditionalResourcesElement;
         new (): HTMLAdditionalResourcesElement;
+    };
+    interface HTMLAngularComponentsElement extends Components.AngularComponents, HTMLStencilElement {
+    }
+    var HTMLAngularComponentsElement: {
+        prototype: HTMLAngularComponentsElement;
+        new (): HTMLAngularComponentsElement;
     };
     interface HTMLAuthConnectPromoElement extends Components.AuthConnectPromo, HTMLStencilElement {
     }
@@ -355,6 +365,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "additional-resources": HTMLAdditionalResourcesElement;
+        "angular-components": HTMLAngularComponentsElement;
         "auth-connect-promo": HTMLAuthConnectPromoElement;
         "bar-chart": HTMLBarChartElement;
         "home-components": HTMLHomeComponentsElement;
@@ -393,6 +404,9 @@ declare global {
 declare namespace LocalJSX {
     interface AdditionalResources {
         "page"?: string;
+    }
+    interface AngularComponents {
+        "tab"?: TabType;
     }
     interface AuthConnectPromo {
     }
@@ -531,6 +545,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "additional-resources": AdditionalResources;
+        "angular-components": AngularComponents;
         "auth-connect-promo": AuthConnectPromo;
         "bar-chart": BarChart;
         "home-components": HomeComponents;
@@ -571,6 +586,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "additional-resources": LocalJSX.AdditionalResources & JSXBase.HTMLAttributes<HTMLAdditionalResourcesElement>;
+            "angular-components": LocalJSX.AngularComponents & JSXBase.HTMLAttributes<HTMLAngularComponentsElement>;
             "auth-connect-promo": LocalJSX.AuthConnectPromo & JSXBase.HTMLAttributes<HTMLAuthConnectPromoElement>;
             "bar-chart": LocalJSX.BarChart & JSXBase.HTMLAttributes<HTMLBarChartElement>;
             "home-components": LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;

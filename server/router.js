@@ -102,7 +102,7 @@ module.exports = {
     .get('/integrations/:integration', getPrismicAPI, (req, res, next) =>
       getIntegration(req, res, next, req.params.integration))
 
-    .get('/ioniconf', (_, res) => res.render('ioniconf'))
+    .get('/ioniconf-2020', (_, res) => res.render('ioniconf-2020'))
     .get('/jobs', (_, res) => res.render('jobs'))
     .get('/login', (_, res) => res.render('login'))
     .get('/logout', (_, res) => res.render('logout'))

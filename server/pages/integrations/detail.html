@@ -94,8 +94,15 @@
             <script>
               hbspt.forms.create({
             	portalId: "3776657",
-            	formId: "71dde981-12c6-45e2-94c8-acbdecd67aaf",
-              css: ""
+            	formId: "e65429a2-d6f3-42bc-9f42-1195a5766175",
+              css: "",
+              onFormReady: function() {
+                const integrationField = document.querySelector('input[name="integrations_request"]');
+                // eslint-disable-next-line
+                const name = {{ data.name | dump | safe }};
+
+                integrationField.value = name;
+              }
             });
             </script>
           </div>

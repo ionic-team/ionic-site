@@ -747,6 +747,11 @@
     .hs_submit {
       text-align: center;
     }
+
+    .hs-custom-style>div input:not([type=image]):not([type=submit]):not([type=button]):not([type=radio]):not([type=checkbox]):not([type=file]),
+    .hs-custom-style fieldset input:not([type=image]):not([type=submit]):not([type=button]):not([type=radio]):not([type=checkbox]):not([type=file]) {
+      padding: 11px 15px;
+    }
   }
 }
 
@@ -1103,3 +1108,5 @@
     }
   }
 }
+
+

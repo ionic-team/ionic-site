@@ -68,11 +68,6 @@ module.exports = {
         description: 'Ionic provides integrations with your favorite database development solutions. View all the database solutions you can integrate in your Ionic development projects.'
       },
       {
-        name: 'Device Plugins',
-        slug: 'device-plugins',
-        description: 'Ionic provides integrations with your favorite device plug ins. View all the plugins you can integrate in your Ionic development projects.'
-      },
-      {
         name: 'Development',
         slug: 'development',
         description: 'Ionic Integrates with your favorite development tools you know and love. View all the development platforms you can integrate in your Ionic development projects.'

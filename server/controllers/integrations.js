@@ -83,11 +83,6 @@ module.exports = {
         description: 'Ionic provides integrations with your favorite devops solutions. View all the devops solutions you can integrate in your Ionic development projects.'
       },
       {
-        name: 'Hardware',
-        slug: 'hardware',
-        description: 'Ionic provides integrations with any mobile hardware technology you need. View all the hardware solutions you can integrate in your Ionic development projects.'
-      },
-      {
         name: 'Messaging',
         slug: 'messaging',
         description: 'Ionic provides integrations with your favorite messing plug ins. View all the messaging solutions you can integrate in your Ionic development projects.'
@@ -96,6 +91,11 @@ module.exports = {
         name: 'Marketing',
         slug: 'marketing',
         description: 'Ionic provides integrations with your favorite mobile marketing solutions. View all the marketing solutions you can integrate in your Ionic development projects.'
+      },
+      {
+        name: 'Navigation',
+        slug: 'navigation',
+        description: 'Ionic provides integrations with your favorite navigation systems. View all the navigation systems you can integrate into your Ionic development projects.'
       },
       {
         name: 'Payments',
@@ -116,11 +116,6 @@ module.exports = {
         name: 'Testing',
         slug: 'testing',
         description: 'Ionic provides integrations with your favorite app testing solutions. View all the app testing solutions you can integrate in your Ionic development projects.'
-      },
-      {
-        name: 'UI',
-        slug: 'ui',
-        description: 'Ionic provides integrations with your favorite User Interface solutions. View all the User Interface solutions you can integrate in your Ionic development projects.'
       },
       {
         name: 'Voice',

@@ -60,12 +60,12 @@
 <main>
   <div class="container-fluid">
     <div class="auth-form-container">
-      {% if query.source == 'wizard-1' %}
+      {% if query.source == 'wizard-1' or query.source == 'capacitor'%}
           <ionic-switcher items="Create app,Account" index="1"></ionic-switcher>
       {% endif %}
 
       <ionic-signup-form
-        {% if query.source == 'wizard-1' %}
+        {% if query.source == 'wizard-1' or query.source == 'capacitor' %}
           heading="Sign up &amp; connect your app"
           subheading="Sign up for free with your Git host. We will automatically create a repo for your app and connect it to your Ionic dashboard."
         {% else %}
@@ -84,7 +84,7 @@
   </div>
 </main>
 
-{% if query.source == 'wizard-1' %}
+{% if query.source == 'wizard-1' or query.source == 'capacitor' %}
   <aside class="sidebar">
     <div class="sidebar__content">
       <h2>What you get</h2>

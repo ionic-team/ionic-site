@@ -10,6 +10,8 @@ import { trackClick } from "../../util/analytics";
   shadow: false
 })
 export class IonicSignupForm {
+  // Note, the source sent to Hubspot will favor query param sources over the one provided. 
+  // See auth.ts's signup function
   @Prop() source;
 
   // Fired when the signup has completed. Is only triggered if oauthRedirect is false

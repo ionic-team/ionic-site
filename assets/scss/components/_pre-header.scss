@@ -31,8 +31,8 @@
     font-size: 9px;
     text-transform: uppercase;
     vertical-align: 0;
-    white-space: pre;
-    letter-spacing: .02em;
+    white-space: nowrap;
+    letter-spacing: 0;
     transition: .2s background-color, .2s box-shadow;
     background: linear-gradient(68.35deg, #4CC3FF 0%, #4172FF 100%);
     box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.06);
@@ -40,12 +40,6 @@
     padding: 5px 10px;
     margin-left: 24px;
     line-height: 1;
-
-    &::after {
-      font-family: 'Ionicons';
-      content: '\f3d1';
-      margin-left: 3px;
-    }
 
     &:hover {
       background-color: lighten(#73a5ff, 5);

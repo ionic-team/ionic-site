@@ -97,11 +97,15 @@
             	formId: "e65429a2-d6f3-42bc-9f42-1195a5766175",
               css: "",
               onFormReady: function() {
-                const integrationField = document.querySelector('input[name="integrations_request"]');
-                // eslint-disable-next-line
-                const name = {{ data.name | dump | safe }};
+                try {
+                  const integrationField = document.querySelector('input[name="integrations_request"]');
 
-                integrationField.value = name;
+                  const name = {{ data.name | dump | safe }};
+
+                  integrationField.value = name;
+                } catch(e) {
+                  Raven.captureException(e);
+                }
               }
             });
             </script>
@@ -111,4 +115,14 @@
     </div>
 
   </section>
+{% endblock %}
+
+{% block scripts %}
+<script
+  src="https://cdn.ravenjs.com/3.26.4/raven.min.js"
+  crossorigin="anonymous"
+></script>
+<script>
+  Raven.config("https://6306b8221b674c36a679aac167196296@o102374.ingest.sentry.io/1382185").install();
+</script>
 {% endblock %}

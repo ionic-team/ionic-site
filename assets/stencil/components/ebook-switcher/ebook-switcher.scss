@@ -86,7 +86,8 @@ ebook-switcher {
 
       margin-block-end: clamp(16px, 3vw, 32px);
 
-      span {
+      em {
+        font-style: normal;
         color: #fff;
       }
     }

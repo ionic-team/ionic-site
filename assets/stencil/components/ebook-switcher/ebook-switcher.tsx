@@ -8,7 +8,7 @@ import data from './bookData.json';
 })
 export class EbookSwitcher {
 
-  @Prop({ reflect: true}) id = 'hybrid-vs-native';
+  @Prop({ reflect: true}) id = 'evaluating-ionic-enterprise';
 
   render() {
     const { Modal, Dots, id } = this;
@@ -36,7 +36,7 @@ export class EbookSwitcher {
             <div class="heading-group">
               <h2>
                 {data[id].text.normal}{' '}
-                <span>{data[id].text.normal}</span>
+                <em>{data[id].text.bold}</em>
               </h2>
               <a
                 data-toggle="modal" data-target="#hubspotForm"

@@ -9,8 +9,13 @@ ebook-switcher {
 
     background: linear-gradient(180deg, #0d2e55 0%, #001a3a 100%);
 
-    @media screen and (max-width: $screen-xs-max) {
-      flex-direction: column;
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column-reverse;
+
+      .image-wrapper-inner {
+        top: 0;
+        margin-block-end: -18.25rem;
+      }
     }
 
     > * {
@@ -20,16 +25,49 @@ ebook-switcher {
   }
 
   .image-wrapper {
-    position: relative;
 
-    img {
-      display: block;
-      max-width: 100%;
-      position: absolute;
-      bottom: 0;
+    .dots-wrapper {
+      position: relative;
+      width: fit-content;
 
-      @media screen and (max-width: $screen-xs-max) {
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+
+      [class*=dots] {
+        position: absolute;
+      }
+
+      .dots-1 {
+        top: -16px;
+        left: -72px;
+      }
+      .dots-2 {
+        top: 160px;
+        right: -72px;
+      }
+    }
+
+    &-inner {
+      overflow: hidden;
+
+      width: fit-content;
+      position: relative;
+
+      margin-block-end: -14.25rem;
+
+      top: 2.625rem;
+
+      box-shadow: 30px 20px 40px black;
+  
+      border-radius: 2px;
+  
+      img {
+        margin: -1px;
+
         position: relative;
+        z-index: 2;
+
+        display: block;
       }
     }
   }

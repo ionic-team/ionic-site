@@ -23,6 +23,9 @@ export namespace Components {
         "color": string;
         "graphData": string | object;
     }
+    interface EbookSwitcher {
+        "id": string;
+    }
     interface HomeComponents {
     }
     interface HomeCountdown {
@@ -176,6 +179,12 @@ declare global {
     var HTMLBarChartElement: {
         prototype: HTMLBarChartElement;
         new (): HTMLBarChartElement;
+    };
+    interface HTMLEbookSwitcherElement extends Components.EbookSwitcher, HTMLStencilElement {
+    }
+    var HTMLEbookSwitcherElement: {
+        prototype: HTMLEbookSwitcherElement;
+        new (): HTMLEbookSwitcherElement;
     };
     interface HTMLHomeComponentsElement extends Components.HomeComponents, HTMLStencilElement {
     }
@@ -368,6 +377,7 @@ declare global {
         "angular-components": HTMLAngularComponentsElement;
         "auth-connect-promo": HTMLAuthConnectPromoElement;
         "bar-chart": HTMLBarChartElement;
+        "ebook-switcher": HTMLEbookSwitcherElement;
         "home-components": HTMLHomeComponentsElement;
         "home-countdown": HTMLHomeCountdownElement;
         "home-native": HTMLHomeNativeElement;
@@ -413,6 +423,9 @@ declare namespace LocalJSX {
     interface BarChart {
         "color"?: string;
         "graphData"?: string | object;
+    }
+    interface EbookSwitcher {
+        "id"?: string;
     }
     interface HomeComponents {
     }
@@ -548,6 +561,7 @@ declare namespace LocalJSX {
         "angular-components": AngularComponents;
         "auth-connect-promo": AuthConnectPromo;
         "bar-chart": BarChart;
+        "ebook-switcher": EbookSwitcher;
         "home-components": HomeComponents;
         "home-countdown": HomeCountdown;
         "home-native": HomeNative;
@@ -589,6 +603,7 @@ declare module "@stencil/core" {
             "angular-components": LocalJSX.AngularComponents & JSXBase.HTMLAttributes<HTMLAngularComponentsElement>;
             "auth-connect-promo": LocalJSX.AuthConnectPromo & JSXBase.HTMLAttributes<HTMLAuthConnectPromoElement>;
             "bar-chart": LocalJSX.BarChart & JSXBase.HTMLAttributes<HTMLBarChartElement>;
+            "ebook-switcher": LocalJSX.EbookSwitcher & JSXBase.HTMLAttributes<HTMLEbookSwitcherElement>;
             "home-components": LocalJSX.HomeComponents & JSXBase.HTMLAttributes<HTMLHomeComponentsElement>;
             "home-countdown": LocalJSX.HomeCountdown & JSXBase.HTMLAttributes<HTMLHomeCountdownElement>;
             "home-native": LocalJSX.HomeNative & JSXBase.HTMLAttributes<HTMLHomeNativeElement>;

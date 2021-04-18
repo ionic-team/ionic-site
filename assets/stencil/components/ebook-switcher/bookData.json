@@ -1,0 +1,62 @@
+{
+  "hybrid-vs-native": {
+    "title": "Hybrid vs. Native",
+    "image": {
+      "url": "https://images.prismic.io/ionicframeworkcom/dc70a9c1-eb1f-4e1a-8a89-ab6db635caba_book-hybrid-vs-native%402x.png?auto=compress,format",
+      "alt": "Hybrid vs Native book cover"
+    },
+    "text": {
+      "normal": "Learn the differences between hybrid and native apps.",
+      "bold": "We break down all the myths and misconceptions."
+    },
+    "formId": "8883f3dd-d97c-4719-aaef-4132038af0c1"
+  },
+  "evaluating-ionic-enterprise": {
+    "title": "Evaluating Ionic for Enterprise Development",
+    "image": {
+      "url": "https://images.prismic.io/ionicframeworkcom/f8a4747c-e37c-420d-99dd-e1ceec5b1711_book-enterprise-development%402x.png?auto=compress,format",
+      "alt": "Evaluating ionic enterprise book cover"
+    },
+    "text": {
+      "normal": "Get all the facts you need to make the right decision.",
+      "bold": "We wrote a guide on everything you need to know."
+    },
+    "formId": "7419f80f-b2f7-42d7-bfd6-167f9a347017"
+  },
+  "architects-guide-to-pwas": {
+    "title": "The Architect's Guide to Progressive Web Apps",
+    "image": {
+      "url": "https://images.prismic.io/ionicframeworkcom/f2657363-ef33-4534-b248-6b3cee69489a_book-progressive-web-apps%402x.png?auto=compress,format",
+      "alt": "architects guide to pwas book cover"
+    },
+    "text": {
+      "normal": "normal text",
+      "bold": "bold text"
+    },
+    "formId": "504e0e0c-29f0-4234-8853-61110a01a2ef"
+  },
+  "cross-platform-apps-with-capacitor": {
+    "title": "Building Cross-platform apps with Capacitor",
+    "image": {
+      "url": "https://images.prismic.io/ionicframeworkcom/75a55ef6-8230-4c25-8eff-09337e4002ec_book-cross-platform-capacitor%402x.png?auto=compress,format",
+      "alt": "cross-platform apps with capacitor book cover"
+    },
+    "text": {
+      "normal": "normal text",
+      "bold": "bold text"
+    },
+    "formId": "9151dc0b-42d9-479f-b7b8-649e0e7bd1bc"
+  },
+  "solving-mobile-cicd-with-appflow": {
+    "title": "Solving Mobile CI/CD with Appflow",
+    "image": {
+      "url": "https://images.prismic.io/ionicframeworkcom/3f5d25ef-2a7b-495f-bcfb-b9066a2025af_book-appflow-cicd%402x.png?auto=compress,format",
+      "alt": "solving mobile ci/cd with appflow book cover"
+    },
+    "text": {
+      "normal": "normal text",
+      "bold": "bold text"
+    },
+    "formId": "635cf145-8698-40f9-9192-405ed130ad8a"
+  }
+}

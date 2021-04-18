@@ -95,38 +95,7 @@
 </div>
 
 <main>
-  <div class="modal collapse fade"
-     id="hubspotForm"
-     tabindex="-1"
-     role="dialog"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <svg data-toggle="modal" data-target="#hubspotForm" class="close-button" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0.0002498626708984375 0.014999866485595703 460.77471923828125 460.7449645996094" style="enable-background:new 0 0 460.775 460.775;" xml:space="preserve">
-            <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55
-              c-4.127,0-8.08,1.639-10.993,4.55l-171.138,171.14L59.25,4.565c-2.913-2.911-6.866-4.55-10.993-4.55
-              c-4.126,0-8.08,1.639-10.992,4.55L4.558,37.284c-6.077,6.075-6.077,15.909,0,21.986l171.138,171.128L4.575,401.505
-              c-6.074,6.077-6.074,15.911,0,21.986l32.709,32.719c2.911,2.911,6.865,4.55,10.992,4.55c4.127,0,8.08-1.639,10.994-4.55
-              l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
-              c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"></path>
-            </svg>
-          <h2>Hybrid vs. Native eBook</h2>
-          <hubspot-form form-id="8883f3dd-d97c-4719-aaef-4132038af0c1"></hubspot-form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="overflow-mask">
-    <hubspot-dynamic-content list-id="5970" class="expander-wrapper activateOnScroll">
-      <div slot="default">
-        {% include '_includes/promos/hybrid-vs-native.html' %}
-      </div>
-      <div slot="alternate">
-        {% include '_includes/promos/evaluating-ionic-for-enterprise.html' %}
-      </div>
-    </hubspot-dynamic-content>
-  </div>
+  <ebook-switcher></ebook-switcher>
 
   <section id="build-with-web" class="container">
     <hgroup>
@@ -447,45 +416,6 @@
 
   {% include '_includes/promos/quad-cta.html' %}
 </main>
-{% endblock %}
-
-{% block modals %}
-{#<div class="modal collapse fade"
-     id="contactForm"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-                onClick="mixpanel.track('Form Close', {'test': 'Enterprise - 1'})">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <hgroup class="text-center">
-          <h3>Thank you for your interest in our eBook!</h3>
-          <p class="lg">
-            We just need some basic information so we can send the eBook your
-            way.
-          </p>
-        </hgroup>
-        <script charset="utf-8"
-                async
-                type="text/javascript"
-                src="https://js.hsforms.net/forms/v2.js"></script>
-        <script>          
-            hbspt.forms.create({
-              portalId: '3776657',
-              formId: '8883f3dd-d97c-4719-aaef-4132038af0c1'
-            });
-        </script>
-      </div>
-    </div>
-  </div>
-</div>#}
 {% endblock %}
 
 {% block scripts %}

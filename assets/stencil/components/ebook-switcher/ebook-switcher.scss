@@ -1,0 +1,124 @@
+@import '../../vars';
+
+ebook-switcher {
+  .wrapper {
+    display: flex;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid #e9edf3;
+
+    background: linear-gradient(180deg, #0d2e55 0%, #001a3a 100%);
+
+    @media (max-width: $screen-xs-max) {
+      flex-direction: column-reverse;
+
+      .image-wrapper-inner {
+        top: 0;
+        margin-block-end: -18.25rem;
+      }
+    }
+
+    > * {
+      flex-basis: 50%;
+      min-width: 0;
+    }
+  }
+
+  .image-wrapper {
+
+    .dots-wrapper {
+      position: relative;
+      width: fit-content;
+
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+
+      [class*=dots] {
+        position: absolute;
+      }
+
+      .dots-1 {
+        top: -16px;
+        left: -72px;
+      }
+      .dots-2 {
+        top: 160px;
+        right: -72px;
+      }
+    }
+
+    &-inner {
+      overflow: hidden;
+
+      width: fit-content;
+      position: relative;
+
+      margin-block-end: -14.25rem;
+
+      top: 2.625rem;
+
+      box-shadow: 30px 20px 40px black;
+  
+      border-radius: 2px;
+  
+      img {
+        margin: -1px;
+
+        position: relative;
+        z-index: 2;
+
+        display: block;
+      }
+    }
+  }
+
+  .heading-group {
+    padding: clamp(32px, 5vw, 84px) clamp(32px, 4.5vw, 50px)
+      clamp(32px, 5vw, 85px) clamp(32px, 4.5vw, 50px);
+
+
+    h2 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 120%;
+      letter-spacing: -0.03em;
+      color: #cdd6df;
+
+      margin-block-end: clamp(16px, 3vw, 32px);
+
+      em {
+        font-style: normal;
+        color: #fff;
+      }
+    }
+
+    a {
+      display: inline-block;
+      background: #3880ff;
+      border-radius: 100px;
+      padding: 8.5px 12px 7.5px;
+      min-height: 32px;
+      vertical-align: middle;
+      text-decoration: none;
+      cursor: pointer;
+
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 112%;
+      letter-spacing: -0.02em;
+      color: #fff;
+
+      transition: background-color 0.2s ease-out;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: #5291ff;
+      }
+
+      .arrow {
+        letter-spacing: 0;
+      }
+    }
+  }
+}

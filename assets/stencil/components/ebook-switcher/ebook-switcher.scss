@@ -1,0 +1,85 @@
+@import '../../vars';
+
+ebook-switcher {
+  .wrapper {
+    display: flex;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid #e9edf3;
+
+    background: linear-gradient(180deg, #0d2e55 0%, #001a3a 100%);
+
+    @media screen and (max-width: $screen-xs-max) {
+      flex-direction: column;
+    }
+
+    > * {
+      flex-basis: 50%;
+      min-width: 0;
+    }
+  }
+
+  .image-wrapper {
+    position: relative;
+
+    img {
+      display: block;
+      max-width: 100%;
+      position: absolute;
+      bottom: 0;
+
+      @media screen and (max-width: $screen-xs-max) {
+        position: relative;
+      }
+    }
+  }
+
+  .heading-group {
+    padding: clamp(32px, 5vw, 84px) clamp(32px, 4.5vw, 50px)
+      clamp(32px, 5vw, 85px) clamp(32px, 4.5vw, 50px);
+
+
+    h2 {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 120%;
+      letter-spacing: -0.03em;
+      color: #cdd6df;
+
+      margin-block-end: clamp(16px, 3vw, 32px);
+
+      span {
+        color: #fff;
+      }
+    }
+
+    a {
+      display: inline-block;
+      background: #3880ff;
+      border-radius: 100px;
+      padding: 8.5px 12px 7.5px;
+      min-height: 32px;
+      vertical-align: middle;
+      text-decoration: none;
+      cursor: pointer;
+
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 112%;
+      letter-spacing: -0.02em;
+      color: #fff;
+
+      transition: background-color 0.2s ease-out;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: #5291ff;
+      }
+
+      .arrow {
+        letter-spacing: 0;
+      }
+    }
+  }
+}

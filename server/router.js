@@ -63,6 +63,7 @@ module.exports = {
     .get('/developers', (_, res) => res.render('developers'))
     .get('/ds', (_, res) => res.render('ds'))
 
+    .get('/early-access', (_, res) => res.render('early-access'))
     .get('/enterprise', (_, res) => res.render('enterprise/index'))
     .get('/enterprise/auth-connect', (_, res) => res.redirect('https://ionic.io/products/auth-connect'))
     .get('/enterprise/contact', (_, res) => res.redirect('https://ionic.io/contact/sales'))

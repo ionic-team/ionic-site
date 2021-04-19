@@ -40,10 +40,10 @@ export class EbookSwitcher {
               </h2>
               <a
                 data-toggle="modal" data-target="#hubspotForm"
-                // onclick="(e) => {
-                //   e.preventDefault();
-                //   c('test', 'home-cards', this, 'hybrid-v-native');
-                // }"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.c('test', 'Testing', this, id);
+                }}
                >Read the free eBook <span class="arrow">-&gt;</span></a
               >
             </div>

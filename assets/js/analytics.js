@@ -1,9 +1,9 @@
 // Google Tag Manager
-// (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-// new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-// j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-// 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-// })(window,document,'script','dataLayer','GTM-TKMGCBC');
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TKMGCBC');
 
 
 $(function() {
@@ -161,8 +161,6 @@ window.c = (cat, lbl, el, val) => {
     console.warn('Hubspot blocked', e);
   }
 
-  console.log(window.ga, window.ga.loaded);
-
   if (window.ga && ga.loaded) {
     let linkFollowed = false;
     const followLink = () => {
@@ -176,12 +174,10 @@ window.c = (cat, lbl, el, val) => {
       document.location = el.href;
     }
 
-
-
     ga('send', {
       hitType: 'event',
       eventCategory: cat,
-      eventAction: 'Click-Test',
+      eventAction: 'Click',
       eventLabel: lbl,
       eventValue: val,
       hitCallback: followLink

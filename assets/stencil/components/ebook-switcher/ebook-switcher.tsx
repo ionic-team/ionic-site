@@ -41,7 +41,6 @@ export class EbookSwitcher {
               <a
                 data-toggle="modal" data-target="#hubspotForm"
                 onClick={(e) => {
-                  console.log('click event')
                   e.preventDefault();
                   window.c('Button', 'Homepage eBook CTA');
                 }}

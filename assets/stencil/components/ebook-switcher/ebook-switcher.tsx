@@ -42,7 +42,7 @@ export class EbookSwitcher {
                 data-toggle="modal" data-target="#hubspotForm"
                 onClick={(e) => {
                   e.preventDefault();
-                  window.c('Testing', 'Testing', null, 0);
+                  window.c('Button', 'Homepage eBook CTA', null, id);
                 }}
                >Read the free eBook <span class="arrow">-&gt;</span></a
               >

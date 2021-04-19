@@ -419,6 +419,14 @@
 {% endblock %}
 
 {% block scripts %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-44023830-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("js", "UA-44023830-1");
+</script>
 <script src="https://www.googleoptimize.com/optimize.js?id=GTM-WKQJ324"></script>
 <script type="application/ld+json">
 {

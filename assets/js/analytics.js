@@ -162,7 +162,6 @@ window.c = (cat, lbl, el, val) => {
   }
 
   if (window.ga && ga.loaded) {
-
     let linkFollowed = false;
     const followLink = () => {
       if (!el || linkFollowed) return;

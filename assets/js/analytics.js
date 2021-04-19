@@ -148,7 +148,7 @@ window.hsSnitch = () => {
 window.hsSnitch();
 
 // shorthand global analytics click event helper
-window.c = (cat, lbl, el, val) => {
+window.c = (cat, lbl, el, val, opts = {}) => {
   if (typeof val === 'undefined') {
     val = null;
   }
@@ -174,7 +174,7 @@ window.c = (cat, lbl, el, val) => {
       document.location = el.href;
     }
 
-    ga('send', {
+    ga(opts.trackerName ? `${opts.trackerName}.send` : 'send', {
       hitType: 'event',
       eventCategory: cat,
       eventAction: 'Click',

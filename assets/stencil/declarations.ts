@@ -3,7 +3,7 @@ declare global {
     API_URL: string;
     DASHBOARD_URL: string;
     _hsq: any[];
-    c: (cat, lbl, el?, val?) => void;
+    c: (cat, lbl, el?, val?, opts?) => void;
     dataLayer: object[];
     grecaptcha?: any;
   }

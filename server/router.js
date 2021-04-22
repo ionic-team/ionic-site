@@ -46,10 +46,10 @@ module.exports = {
     .get('/advisory', (_, res) => res.render('products/advisory'))
     .get('/appflow', (_, res) => res.render('products/appflow'))
 
-    .get('/books/evaluating-ionic-for-enterprise', (_, res) => res.render('books/evaluating-ionic-for-enterprise'))
-    .get('/books/hybrid-v(s)?-native', (_, res) => res.render('books/hybrid-vs-native'))
-    .get('/books/hybrid-vs-native/preview', (_, res) => res.render('books/hybrid-vs-native-preview'))
-    .get('/books/rethinking-low-code', (_, res) => res.render('books/rethinking-low-code'))
+    .get('/books/evaluating-ionic-for-enterprise', (_, res) => res.redirect('https://go.ionicframework.com/enterprise-eval-guide'))
+    .get('/books/hybrid-v(s)?-native', (_, res) => res.redirect('https://go.ionicframework.com/hybrid-vs-native-guide'))
+    .get('/books/hybrid-vs-native/preview', (_, res) => res.redirect('https://go.ionicframework.com/hybrid-vs-native-guide'))
+    .get('/books/rethinking-low-code', (_, res) => res.redirect('https://ionic.io'))
 
     .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
     .get('/community', getPrismicAPI, (req, res, next) => getSingle(req, res, next, 'framework_community', 'community'))

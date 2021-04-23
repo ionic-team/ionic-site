@@ -696,15 +696,7 @@
 
 {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
-<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 <script>
-window.sr = ScrollReveal({ duration: 1000, scale: 1, distance: '10px' });
-sr.reveal('main section p, main section li, main section figure, main section bar-chart, main section h4');
-setTimeout(function() {
-  window.ScrollReveal().sync()
-}, 5000);
-
-
 const stickyWatcher = () => {
   const $nav = document.getElementById('survey-2020-nav')
   const observer = new IntersectionObserver( 

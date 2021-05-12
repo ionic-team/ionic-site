@@ -24,18 +24,6 @@
     "company-size": "5-20"
   },
   {
-    "slug":"briebug",
-    "name":"Briebug",
-    "level":"platinum",
-    "link":"https://briebug.com",
-    "short-description":"<strong>Briebug</strong> provides best practice Angular development expertise to enterprise software engineering leaders and their teams that streamline in their environment, accelerate the release of digital products, and guarantee their success.",
-    "long-description":"<p>We are premier brokers of technology solutions. We have built a team of talented developers dedicated to delivering cutting edge enterprise solutions that will provide years of value to our clients.</p><p>BrieBug creates next generation web pages and mobile apps that are responsive and client focused using the latest technologies, including Mongo, Express, Angular and Node (MEAN stack). We deliver projects on time and on budget!</p><p>BrieBug ranks as the premier web/mobile application consulting firm creating solutions that define the next generation of technology. We provide top level consulting teams that are hand picked, groomed, trained, and company supported to meet your needs from day one.</p>",
-    "address":"12596 W Bayaud Ave #201<br>Lakewood, CO 80228",
-    "features": null,
-    "coordinates":[19.5,38],
-    "company-size": "50-200"
-  },
-  {
     "slug":"hybridmob",
     "name":"HybridMob",
     "level":"gold",

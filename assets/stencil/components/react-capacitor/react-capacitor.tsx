@@ -76,7 +76,6 @@ LocalNotifications.schedule({
       },
       code: `
 import { Camera, CameraResultType } from '@capacitor/camera';
-const { Camera } = Plugins;
 
 async takeProfilePicture() {
   // Take a picture or video, or load from the library

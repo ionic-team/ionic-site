@@ -74,7 +74,6 @@ module.exports = {
     .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
     .get('/enterprise/solutions/cross-platform', (_, res) => res.render('enterprise/solutions/cross-platform'))
 
-    .get('/enterprise/strategy-session', (_, res) => res.render('enterprise/strategy-session'))
     .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
     .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
     .get('/enterprise/why-ionic', (_, res) => res.redirect('https://ionic.io/why-ionic'))

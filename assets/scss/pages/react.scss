@@ -389,6 +389,13 @@
   }
 
   #native {
+    display: flex;
+    flex-wrap: nowrap;
+
+    > * {
+      flex-basis: 50%;
+    }
+
     @media (max-width: $screen-sm-max) {
       react-capacitor {
         display: none;
@@ -396,16 +403,24 @@
       ul {
         display: none;
       }
+
+      hgroup {
+        align-self: flex-start;
+      }
     }
 
     react-capacitor {
       height: 100%;
-      flex: 1;
       margin-right: 64px;
+      max-width: 50%;
 
       @media screen and (min-width: $screen-md) {
         min-height: 469px;
       }
+    }
+
+    hgroup {
+      max-width: 50%;
     }
 
     .content {

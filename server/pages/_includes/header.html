@@ -1,7 +1,6 @@
-{% include '_includes/mobile_nav.html' %}
-
-{% if not hide_pre_header and announcementBar %}
-<a href="{{announcementBar.data.link.url}}"
+{% include '_includes/mobile_nav.html' %} {% if not hide_pre_header and
+announcementBar %}
+<!-- <a href="{{announcementBar.data.link.url}}"
          onclick="return c('MarketingCTAs','btn-header-announcement', this, 0);"
          target="_blank">
 <nav class="pre-header pre-header--{{announcementBar.data.theme | lower | replace(" ", "-")}}">
@@ -22,29 +21,32 @@
     </div>
   </div>
 </nav>
-</a>
+</a> -->
 {% endif %}
 
-<nav class="navbar navbar-default{% if header_style %} {{ header_style }}{% endif %}">
+<nav
+  class="navbar navbar-default{% if header_style %} {{ header_style }}{% endif %}"
+>
   <div class="wrapper">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button"
-              class="navbar-toggle collapsed"
-              id="collapse-toggle"
-              aria-expanded="false">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        id="collapse-toggle"
+        aria-expanded="false"
+      >
         <span class="sr-only">Toggle navigation</span>
         <i class="ion-md-more"></i>
       </button>
       <a class="navbar-brand" href="/">
-        {# {% include '_includes/svg/ionic-framework.svg' %} #}
-        {% include '_includes/svg/ionic-black.svg' %}
+        {# {% include '_includes/svg/ionic-framework.svg' %} #} {% include
+        '_includes/svg/ionic-black.svg' %}
       </a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar-collapse">
-
       <ul class="nav navbar-nav navbar-right">
         <li class="search">
           <ionic-search>
@@ -56,31 +58,55 @@
           </ionic-search>
         </li>
 
-        
-
         {# {% if user %}
         <li class="sm-hide">
           <a href="/logout">Log out</a>
         </li>
-        <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
+        <li
+          class="
+            header-btn-white{%
+            if
+            header_style.indexOf('light')
+            !=
+            -1
+            %}
+            blue{%
+            endif
+            %}
+          "
+        >
           <a href="{{ DASHBOARD_URL }}" id="btn-header-dashboard">Dashboard</a>
         </li>
         {% else %}
         <li class="sm-hide">
-          <a href="/login?source=framework-{{id | default(id, 'default', true)}}">
-            Log in</a>
+          <a
+            href="/login?source=framework-{{id | default(id, 'default', true)}}"
+          >
+            Log in</a
+          >
         </li>
-        <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
-          <a href="/getting-started"
-             id="btn-header-sign-up">Get Started</a>
+        <li
+          class="
+            header-btn-white{%
+            if
+            header_style.indexOf('light')
+            !=
+            -1
+            %}
+            blue{%
+            endif
+            %}
+          "
+        >
+          <a href="/getting-started" id="btn-header-sign-up">Get Started</a>
         </li>
-        {% endif %} #}
-
+        {% endif %} #} {% include '_includes/header_nav.html' %}
+      </ul>
+      {#
+      <ul class="nav navbar-nav navbar">
         {% include '_includes/header_nav.html' %}
       </ul>
-      {# <ul class="nav navbar-nav navbar">
-        {% include '_includes/header_nav.html' %}
-      </ul> #}
+      #}
     </div>
     <!-- /.navbar-collapse -->
   </div>

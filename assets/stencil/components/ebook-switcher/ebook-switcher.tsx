@@ -8,7 +8,7 @@ import data from './bookData.json';
 })
 export class EbookSwitcher {
 
-  @Prop({ reflect: true}) id = 'evaluating-ionic-enterprise';
+  @Prop({ reflect: true}) id = 'hybrid-vs-native';
 
   render() {
     const { Modal, Dots, id } = this;

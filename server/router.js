@@ -107,7 +107,7 @@ module.exports = {
     .get('/login', (_, res) => res.render('login'))
     .get('/logout', (_, res) => res.render('logout'))
     .get('/native', (_, res) => res.render('native'))
-    .get('/press', (_, res) => res.render('press'))
+    .get('/press', (_, res) => res.redirect('https://ionic.io/press'))
     .get('/pricing', (_, res) => res.render('pricing/index'))
     .get('/pricing/compare', (_, res) => res.render('pricing/compare'))
     .get('/pricing/enterprise', (_, res) => res.render('pricing/enterprise'))
@@ -117,7 +117,7 @@ module.exports = {
     .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
     .get('/pro/package', (_, res) => res.render('pro/package'))
 
-    .get('/pwa', (_, res) => res.render('pwa/index'))
+    .get('/pwa', (_, res) => res.redirect('https://ionic.io/pwa'))
     .get('/pwa/toolkit', (_, res) => res.redirect('https://ionicframework.com/pwa'))
 
     .get('/react', (_, res) => res.render('react'))
@@ -145,7 +145,7 @@ module.exports = {
     .get('/signup', (_, res) => res.render('signup'))
     .get('/soon', (_, res) => res.redirect('https://ionicframework.com/ioniconf'))
     .get('/start', (_, res) => res.render('start'))
-    .get('/startups', (_, res) => res.render('startups'))
+    .get('/startups', (_, res) => res.redirect('https://ionic.io/startups'))
     .get('/subscribe', (_, res) => res.render('subscribe'))
     .get('/support', (_, res) => res.redirect('https://ionic.io/support'))
     .get('/survey/2017', (_, res) => res.render('survey/2017'))
@@ -158,9 +158,6 @@ module.exports = {
       getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))
 
     .get('/trusted-partners', (_, res) => res.render('trusted-partners'))
-    .post('/trusted-partners',
-      bp.urlencoded({extended: true}), es(), trustedPartnersCtrl)
-
     .get('/values', (_, res) => { res.render('values'); })
     .get('/verification/failed', (_, res) => res.render('verification/failed'))
     .get('/verification/success', (_, res) => res.render('verification/success'))

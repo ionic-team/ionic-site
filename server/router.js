@@ -111,7 +111,7 @@ module.exports = {
     .get('/pricing', (_, res) => res.render('pricing/index'))
     .get('/pricing/compare', (_, res) => res.render('pricing/compare'))
     .get('/pricing/enterprise', (_, res) => res.render('pricing/enterprise'))
-    .get('/privacy', (_, res) => markdown(res, 'privacy-policy'))
+    .get('/privacy', (_, res) => res.redirect('https://ionic.io/privacy'))
 
     .get('/pro/contact', (_, res) => res.render('pro/contact'))
     .get('/pro/deploy', (_, res) => res.render('pro/deploy'))

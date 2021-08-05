@@ -52,7 +52,7 @@ module.exports = {
     .get('/books/rethinking-low-code', (_, res) => res.redirect('https://ionic.io'))
 
     .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
-    .get('/community', getPrismicAPI, (req, res, next) => getSingle(req, res, next, 'framework_community', 'community'))
+    .get('/community', (_, res) => res.redirect('https://ionic.io/community'))
     .get('/contact', (_, res) => res.render('contact'))
     .get('/contributors', (_, res) => res.render('contributors'))
     .get('/covid-19', (_, res) => markdown(res, 'corona'))

@@ -73,6 +73,8 @@ export class AppWizard {
 
   @State() user: UserInfo;
 
+  @State() authParams: URLSearchParams;
+
   // The current appId from the server
   appId: string;
 
@@ -115,8 +117,12 @@ export class AppWizard {
   @State() appUrl = '';
   @State() appIcon: string;
 
+
   async componentDidLoad() {
     const params = new URLSearchParams(window.location.hash.slice(1));
+
+    this.authParams = new URLSearchParams(window.location.search);
+
     if (params.has('state')) {
       this.appId = params.get('state');
     } else if (params.has('pwa')) {
@@ -158,15 +164,22 @@ export class AppWizard {
   }
 
   authorize = () => {
-    const params = new URLSearchParams();
-    params.set("scope", "openid profile email");
-    params.set("response_type", "id_token token");
-    params.set("client_id", "wizard");
-    params.set("redirect_uri", window.location.origin + '/start')
-    params.set("state", this.appId || '');
-    params.set("nonce", Math.random().toString(36).substring(2));
-    params.set("source", "wizard-1");
-    window.location.assign(`/signup?${params.toString()}`);
+    if (this.authParams === undefined) {
+      const params = new URLSearchParams();
+      params.set("scope", "openid profile email");
+      params.set("response_type", "id_token token");
+      params.set("client_id", "wizard");
+      params.set("redirect_uri", window.location.origin + '/start')
+      params.set("state", this.appId || '');
+      params.set("nonce", Math.random().toString(36).substring(2));
+      params.set("source", "wizard-1");
+      window.location.assign(`/signup?${params.toString()}`);
+    } else {
+      const path = this.user ? 'oauth/authorize' : 'signup';
+      this.authParams.set("state", this.appId || '');
+      this.authParams.set("source", "cli-start-wizard");
+      window.location.assign(`/${path}?${this.authParams.toString()}`);
+    }
   };
 
   finish = (stayOnFinish = false) => {
@@ -180,12 +193,12 @@ export class AppWizard {
       this.setStep(this.STEPS.length - 1);
     } else {
       const currentOrigin = window.location.origin.toLowerCase();
-      let urlBase = currentOrigin.indexOf('staging.ionicframework.com') > -1 ? 
-         'https://staging.ionicjs.com' : 
+      let urlBase = currentOrigin.indexOf('staging.ionicframework.com') > -1 ?
+         'https://staging.ionicjs.com' :
           currentOrigin.indexOf('ionicframework.com') > -1 ?
           'https://dashboard.ionicframework.com' : 'http://localhost:8080'
       window.location.href = `${urlBase}/create-app/${this.appId}`
-    }    
+    }
   };
 
   basicsNext = async (e?) => {
@@ -203,7 +216,7 @@ export class AppWizard {
         return;
       }
 
-      if (this.user) {
+      if (this.user && this.authParams === undefined) {
         this.finish();
       } else {
         this.authorize();

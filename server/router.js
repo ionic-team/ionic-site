@@ -77,7 +77,7 @@ module.exports = {
     .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
     .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
     .get('/enterprise/why-ionic', (_, res) => res.redirect('https://ionic.io/why-ionic'))
-    .get('/enterprise-license-agreement', (_, res) => markdown(res, 'enterprise-license-agreement'))
+    .get('/enterprise-license-agreement', (_, res) => res.redirect('https://ionic.io/enterprise-license-agreement'))
     .get('/framework', (_, res) => res.render('framework'))
     .get('/getting-started', (_, res) => res.render('getting-started'))
     .get('/getting-started-with-ionic-vue', (_, res) => res.render('getting-started-with-ionic-vue'))
@@ -152,7 +152,7 @@ module.exports = {
     .get('/survey/2018', (_, res) => res.render('survey/2018'))
     .get('/survey/2020', (_, res) => res.render('survey/2020'))
     .get('/team', (_, res) => res.redirect('https://ionic.io/about'))
-    .get('/tos', (_, res) => markdown(res, 'tos'))
+    .get('/tos', (_, res) => res.redirect('https://ionic.io/tos'))
     .get('/translate', (_, res) => res.render('translate'))
     .get('/thank-you/:thankYou', getPrismicAPI, (req, res, next) =>
       getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))

@@ -108,9 +108,9 @@ module.exports = {
     .get('/logout', (_, res) => res.render('logout'))
     .get('/native', (_, res) => res.render('native'))
     .get('/press', (_, res) => res.redirect('https://ionic.io/press'))
-    .get('/pricing', (_, res) => res.render('pricing/index'))
-    .get('/pricing/compare', (_, res) => res.render('pricing/compare'))
-    .get('/pricing/enterprise', (_, res) => res.render('pricing/enterprise'))
+    .get('/pricing', (_, res) => res.redirect('https://ionic.io/pricing'))
+    .get('/pricing/compare', (_, res) => res.redirect('https://ionic.io/appflow/pricing'))
+    .get('/pricing/enterprise', (_, res) => res.redirect('https://ionic.io/pricing'))
     .get('/privacy', (_, res) => res.redirect('https://ionic.io/privacy'))
 
     .get('/pro/contact', (_, res) => res.render('pro/contact'))

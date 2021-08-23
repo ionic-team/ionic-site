@@ -164,7 +164,7 @@ export class AppWizard {
   }
 
   authorize = () => {
-    if (this.authParams === undefined) {
+    if (this.authParams.get('client_id') !== 'cli') {
       const params = new URLSearchParams();
       params.set("scope", "openid profile email");
       params.set("response_type", "id_token token");
@@ -216,7 +216,7 @@ export class AppWizard {
         return;
       }
 
-      if (this.user && this.authParams === undefined) {
+      if (this.user && this.authParams.get('client_id') !== 'cli') {
         this.finish();
       } else {
         this.authorize();

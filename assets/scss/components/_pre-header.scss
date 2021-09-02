@@ -450,4 +450,59 @@
       }
     }
   }
+
+  &--q3-event-2021 {
+    background: #03060b url('/img/announcement-bar/bg-q3-event-2021.png');
+    background-size: 1800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0;
+
+    .container {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > div {
+        display: flex;
+        align-items: center;
+      }
+    }
+  
+    p {
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+  
+      color: #cad3e1;
+  
+      strong,
+      b {
+        color: #fff;
+      }
+    }
+  
+    #btn-header-announcement {
+      background: #fff;
+      color: #03060b;
+  
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+  
+      padding: 6px 12px;
+  
+      white-space: nowrap;
+      text-transform: uppercase;
+
+      &:hover, &:focus {
+        background: rgba(255, 255, 255, 0.9);
+      }
+    }
+  }
 }

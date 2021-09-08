@@ -96,11 +96,11 @@ module.exports = {
     .get('/humans.txt', (_, res) => res.type('txt').render('humans'))
 
     .get('/integrations', (req, res, next) =>
-      getIntegrations(req, res, next))
+      res.redirect('https://ionic.io/integrations'))
     .get('/integrations/category/:category', (req, res, next) =>
-      getIntegrations(req, res, next, req.params.category))
-    .get('/integrations/:integration', getPrismicAPI, (req, res, next) =>
-      getIntegration(req, res, next, req.params.integration))
+      res.redirect('https://ionic.io/integrations?filter=' + req.params.category))
+    .get('/integrations/:integration', (req, res, next) =>
+      res.redirect('https://ionic.io/integrations/' + req.params.integration))
 
     .get('/ioniconf-2020', (_, res) => res.render('ioniconf-2020'))
     .get('/jobs', (_, res) => res.render('jobs'))

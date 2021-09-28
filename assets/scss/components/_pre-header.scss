@@ -486,8 +486,8 @@
     }
   
     #btn-header-announcement {
-      background: #EF3442;
-      color: #fff;
+      background: #fff;
+      color: #03060b;
   
       font-size: 12px;
       line-height: 14px;
@@ -501,7 +501,7 @@
       text-transform: uppercase;
 
       &:hover, &:focus {
-        background: rgba(239, 52, 66, 0.9);
+        background: rgba(255, 255, 255, 0.9);
       }
     }
   }

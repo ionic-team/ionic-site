@@ -146,6 +146,7 @@ module.exports = {
     .get('/soon', (_, res) => res.redirect('https://ionicframework.com/ioniconf'))
     .get('/start', (_, res) => res.render('start'))
     .get('/startups', (_, res) => res.redirect('https://ionic.io/startups'))
+    .get('/stencil-jamstack2021', (_, res) => res.render('stencil-jamstack2021'))
     .get('/subscribe', (_, res) => res.render('subscribe'))
     .get('/support', (_, res) => res.redirect('https://ionic.io/support'))
     .get('/survey/2017', (_, res) => res.render('survey/2017'))

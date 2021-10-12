@@ -167,7 +167,7 @@ module.exports = {
     .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
 
     .get('/press/release/:year/:uid', (req, res, next) =>
-      res.redirect('https://ionic.io/about/press/' + req.params.uid))
+      res.redirect('https://ionic.io/about/press/release/' + req.params.uid))
 
     // JSON endpoints
     .post('/contact', bp.json(), es(), contactCtrl)

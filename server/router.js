@@ -166,25 +166,8 @@ module.exports = {
     .get('/angular', (_, res) => res.render('angular'))
     .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
 
-    // press releases
-    .get('/press/release/2017/dev-survey-says-the-web-is-wining-in-mobile-dev',
-      (_, res) => markdown(res, 'pr-170725-dev-survey-says-the-web-is-wi'))
-    .get('/press/release/2017/ionic-brings-powerful-app-development-suite-to-teams-and-enterprises',
-      (_, res) => markdown(res, 'pr-171206-ionic-brings-powerful-app-dev'))
-    .get('/press/release/2019/latest-version-of-ionic-provides-universal-design-system-for-enterprises',
-      (_, res) => markdown(res, 'pr-1704222-latest-version-of-ionic-provides-universal-design-system-for-enterprises'))
-    .get('/press/release/2019/ionic-framework-4-release',
-      (_, res) => markdown(res, 'pr-ionic-framework-4-release'))
-    .get('/press/release/2019/ionic-alan-announce-integration',
-      (_, res) => markdown(res, 'pr-ionic-alan-announce-integration'))
-    .get('/press/release/2020/ionic-achieves-record-revenue-growth-in-2019',
-      (_, res) => markdown(res, 'pr-ionic-achieves-record-revenue-growth-in-2019'))
-    .get('/press/release/2020/ionic-5-brings-major-design-updates',
-      (_, res) => markdown(res, 'pr-ionic-5-brings-major-design-updates'))
-    .get('/press/release/2020/capacitor-adds-support-for-swift-5-and-android-10-securty-performance',
-      (_, res) => markdown(res, 'pr-capacitor-adds-support-for-swift-5-and-android-10-securty-performance'))
-
-
+    .get('/press/release/:year/:uid', (req, res, next) =>
+      res.redirect('https://ionic.io/about/press/' + req.params.uid))
 
     // JSON endpoints
     .post('/contact', bp.json(), es(), contactCtrl)

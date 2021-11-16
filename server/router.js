@@ -74,8 +74,8 @@ module.exports = {
     .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
     .get('/enterprise/solutions/cross-platform', (_, res) => res.render('enterprise/solutions/cross-platform'))
 
-    .get('/enterprise/support', (_, res) => res.render('enterprise/support'))
-    .get('/enterprise/training', (_, res) => res.render('enterprise/training'))
+    .get('/enterprise/support', (_, res) => res.redirect('https://ionic.io/enterprise/support'))
+    .get('/enterprise/training', (_, res) => res.redirect('https://ionic.io/enterprise/training'))
     .get('/enterprise/why-ionic', (_, res) => res.redirect('https://ionic.io/why-ionic'))
     .get('/enterprise-license-agreement', (_, res) => res.redirect('https://ionic.io/enterprise-license-agreement'))
     .get('/framework', (_, res) => res.render('framework'))

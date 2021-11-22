@@ -51,7 +51,7 @@ module.exports = {
     .get('/books/hybrid-vs-native/preview', (_, res) => res.redirect('https://go.ionicframework.com/hybrid-vs-native-guide'))
     .get('/books/rethinking-low-code', (_, res) => res.redirect('https://ionic.io'))
 
-    .get('/code-of-conduct', (_, res) => markdown(res, 'code-of-conduct'))
+    .get('/code-of-conduct', (_, res) => res.redirect('https://ionic.io/code-of-conduct'))
     .get('/community', (_, res) => res.redirect('https://ionic.io/community'))
     .get('/contact', (_, res) => res.render('contact'))
     .get('/contributors', (_, res) => res.render('contributors'))

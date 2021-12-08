@@ -102,7 +102,7 @@ export class IonicLoginForm {
           </FormErrors>
         ) : null}
         <ionic-social-auth></ionic-social-auth>
-        <form class="hide-password" id="login-form" role="form" onSubmit={this.handleSubmit}>
+        <form class="hide-password Bizible-Exclude" id="login-form" role="form" onSubmit={this.handleSubmit}>
           <ui-floating-input
             type="text"
             label="Email or organization ID"

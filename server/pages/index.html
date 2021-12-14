@@ -6,7 +6,7 @@
 {% set meta_description = "Ionic Framework's app development platform builds amazing cross-platform mobile, web, and desktop apps all with one shared code base and open-web standards." %}
 {% set stickyNav = true %}
 {% set cssPath = 'home' %}
-{% set cssVersion = 6 %}
+{% set cssVersion = 7 %}
 
 {% block header_includes %}
 <link rel="preconnect" href="https://images.prismic.io">
@@ -17,44 +17,63 @@
 
 {% block main %} 
 <div id="ionic-slider">
-  <section id="slide-ionic-react" class="container">
+  <section id="slide-ionic-6" class="container">
     <div class="landing__content">
+      <a class="announcement activateOnScroll" href="https://ionicframework.com/blog/announcing-ionic-6/" rel="noopener" target="_blank">
+        <strong>Ionic v6.0.0 • </strong> 
+        <span>Read about what’s new and how to upgrade -></span>
+      </a>
       <h1>
+        <span class="activateOnScroll">
+          <span class="space">Introducing </span>
+          <a class="gradient" href="https://ionicframework.com/docs">
+            <img
+              src="https://images.prismic.io/ionicframeworkcom/df21e0ff-67d4-4cb7-9a8d-28ac5ddfa676_framework-index-top-1.png?auto=compress,format"
+              srcset="https://images.prismic.io/ionicframeworkcom/df21e0ff-67d4-4cb7-9a8d-28ac5ddfa676_framework-index-top-1.png?auto=compress,format 1x,
+              https://images.prismic.io/ionicframeworkcom/df21e0ff-67d4-4cb7-9a8d-28ac5ddfa676_framework-index-top-1.png?auto=compress,format 2x"
+              width="94" height="66"
+            />
+          </a>
+        </span>
         <span class="activateOnScroll">One codebase.</span>
         <span class="activateOnScroll">Any platform.</span>
-        <span class="activateOnScroll">
-          Now in
-          <span class="words">
-            <a href="/vue" class="underline vue">Vue.</a>
-            <a href="/angular" class="underline angular">Angular.</a>
-            <a href="/react" class="underline react">React.</a>
-          </span>
-        </span>
       </h1>
-      <p class="activateOnScroll">An open source mobile toolkit for building high quality, cross-platform native and web app experiences. Move faster with a single code base, running everywhere with JavaScript and the Web.</p>
+      <p class="activateOnScroll">With a low friction migration, <a href="https://ionicframework.com/docs">Ionic 6</a> brings improved desktop support, new UI components, iOS/Android design enhancements, performance and bundling improvements, and so much more.</p>
       <div class="btn__group activateOnScroll">
         <a href="/signup?page_layout=split">Get started <span class="arrow"> -></span></a>
-        <a href="/docs">Explore the docs <span class="arrow"> -></span></a>  
+        <a href="/docs">Documentation<span class="arrow"> -></span></a>  
       </div>
     </div>  
     <div class="landing__img">
-      <img  class="react active"
-            src="https://images.prismic.io/ionicframeworkcom/13ff7b23-d3b5-400f-98c3-3b31f2912743_hero-ionic-react%402x.png?auto=compress,format"
-            srcset="https://images.prismic.io/ionicframeworkcom/c38fc467-0fcf-4afc-ade4-6337502ba236_hero-ionic-react.png?auto=compress,format 1x,
-                    https://images.prismic.io/ionicframeworkcom/13ff7b23-d3b5-400f-98c3-3b31f2912743_hero-ionic-react%402x.png?auto=compress,format 2x"
-            width="525" height="542">
-      <img  class="vue"
-            loading="lazy"
-            src="https://images.prismic.io/ionicframeworkcom/bbb24dd3-f799-4a98-b840-f53b13ceaa06_hero-ionic-vue%402x.png?auto=compress,format"
-            srcset="https://images.prismic.io/ionicframeworkcom/31c87982-d0c2-4322-876c-ecb4b59af7c9_hero-ionic-vue.png?auto=compress,format 1x,
-                    https://images.prismic.io/ionicframeworkcom/bbb24dd3-f799-4a98-b840-f53b13ceaa06_hero-ionic-vue%402x.png?auto=compress,format 2x"
-            width="525" height="542">
-      <img  class="angular"
-            loading="lazy"
-            src="https://images.prismic.io/ionicframeworkcom/99b1d5e6-4a0a-4d8f-a45f-521f0643d8ac_hero-ionic-angular%402x.png?auto=compress,format.png"
-            srcset="https://images.prismic.io/ionicframeworkcom/8477a3bc-f092-4f87-899d-85569bada39e_hero-ionic-angular.png?auto=compress,format 1x,
-                    https://images.prismic.io/ionicframeworkcom/99b1d5e6-4a0a-4d8f-a45f-521f0643d8ac_hero-ionic-angular%402x.png?auto=compress,format 2x"
-            width="525" height="542">
+      <img
+        src="https://images.prismic.io/ionicframeworkcom/2b77ccff-ccf2-4cd6-a11b-fec843d5af62_framework-index-top-0.png?auto=compress,format"
+        srcset="https://images.prismic.io/ionicframeworkcom/2b77ccff-ccf2-4cd6-a11b-fec843d5af62_framework-index-top-0.png?auto=compress,format 1x,
+        https://images.prismic.io/ionicframeworkcom/2b77ccff-ccf2-4cd6-a11b-fec843d5af62_framework-index-top-0.png?auto=compress,format 2x"
+        width="615" height="597"
+      />
+    </div>
+    <span class="spacer"></span>
+    <div class="bottom activateOnScroll">
+      <h2 class="start">
+        <span>Start building</span>
+        <span> with Ionic v6.0.0</span>
+      </h2>
+      <div class="end">
+        <button onclick="handleCliClick(event)">
+          $ npm i -g @ionic/cli
+          <div class="icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.7188 4H5.78125C4.79749 4 4 4.79749 4 5.78125V12.7188C4 13.7025 4.79749 14.5 5.78125 14.5H12.7188C13.7025 14.5 14.5 13.7025 14.5 12.7188V5.78125C14.5 4.79749 13.7025 4 12.7188 4Z" stroke="#445B78" stroke-linejoin="round"/>
+              <path d="M11.9844 4L12 3.25C11.9987 2.78628 11.8139 2.34192 11.486 2.01402C11.1581 1.68612 10.7137 1.50132 10.25 1.5H3.5C2.97005 1.50157 2.46225 1.71278 2.08752 2.08752C1.71278 2.46225 1.50157 2.97005 1.5 3.5V10.25C1.50132 10.7137 1.68612 11.1581 2.01402 11.486C2.34192 11.8139 2.78628 11.9987 3.25 12H4" stroke="#445B78" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </button>
+        <div class="sublinks">
+          <a href="https://ionicframework.com/blog/announcing-ionic-6/">Ionic 6 Overview</a>
+          <span class="divider">|</span>
+          <a href="https://ionicframework.com/docs/intro/upgrading-to-ionic-6">v6 Migration Guide</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -443,6 +462,32 @@
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script>
+  const handleCliClick = ({currentTarget}) => {
+    currentTarget.classList.add('clicked');
+    setTimeout(() => currentTarget.classList.remove('clicked'), 2000);
+
+    const str = currentTarget.textContent.replace('$', '').trim();
+
+    const el = document.createElement('textarea'); 
+    el.value = str;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute'; 
+    el.style.left = '-9999px';      
+    document.body.appendChild(el);  
+    const selected =           
+      document.getSelection().rangeCount > 0       
+        ? document.getSelection().getRangeAt(0)    
+        : false;                                   
+    el.select();                                   
+    document.execCommand('copy');                  
+    document.body.removeChild(el);                 
+    if (selected) {                                
+      document.getSelection().removeAllRanges();   
+      document.getSelection().addRange(selected);  
+    }
+  };
+</script>
 <script>
 
 

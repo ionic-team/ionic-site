@@ -2,15 +2,9 @@
 
 #ionic-slider {
   // background: #01050c;
-  margin-top: -72px;
   display: block;
   min-height: 860px;
   position: relative;
-  padding-top: clamp(32px, 10vh, 100px);
-
-  @media screen and (max-width: 768px) {
-    padding-top: 6vh !important;
-  }
 
   // Part of the vue.scss style package
   .hero-image-vue {
@@ -109,24 +103,37 @@
   }
 
   aside {
-    position: absolute;
-    bottom: 64px;
-    left: 0;
-    right: 0;
+    // position: absolute;
+    // bottom: 64px;
+    // left: 0;
+    // right: 0;
+
+    margin-block-start: 96px;
+    margin-block-end: 40px;
 
     .container {
+      &::before, &::after {
+        display: none;
+      }
+
       position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
   .stats {
     padding: 0;
-    position: absolute;
+    // position: absolute;
     bottom: 0px;
     left: 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    margin-block-end: 0;
+    margin-inline-end: 32px;
 
     a {
       font-size: 14px;
@@ -161,7 +168,7 @@
 
   ionic-newsletter-signup {
     width: 400px;
-    position: absolute;
+    // position: absolute;
     bottom: 0px;
     right: 20px;
     max-width: calc(100% - 30px);

@@ -403,7 +403,7 @@ export class AppWizard {
           <h2>Welcome to Ionic</h2>
           <p>Let's start your first app</p>
         </hgroup>
-        <form class="form" onSubmit={this.basicsNext}>
+        <form class="form Bizible-Exclude" onSubmit={this.basicsNext}>
           <ui-floating-input
             label="App name"
             type="text"

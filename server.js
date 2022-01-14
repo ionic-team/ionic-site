@@ -86,6 +86,9 @@ function start() {
     // Proxy for oauth when in dev mode
     app.use('/oauth', createProxyMiddleware({ target: 'https://staging.ionicframework.com', changeOrigin: true, secure: false }));
   }
+
+  // Proxy for api-wizard
+  app.use('/api/v1/wizard', createProxyMiddleware({ target: 'https://wizard-api.ionicframework.com', changeOrigin: true, secure: false}))
   
   nunjucks.configure('server/pages', {
     express: app,

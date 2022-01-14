@@ -177,9 +177,6 @@ module.exports = {
     .post('/api/v1/newsletter', bp.json(), es(), newsletterCtrl)
     .post('/api/v1/view/link', bp.json(), es(), viewCtrl)
 
-    .get('/api/v1/wizard/*', (req, res) => res.redirect(`https://wizard-api.ionicframework.com${req.path}`))
-    .post('/api/v1/wizard/*', (req, res) => res.redirect(307, `https://wizard-api.ionicframework.com${req.path}`))
-
     // Prismic Preview
     .get('/preview', previewController)
 

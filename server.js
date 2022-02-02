@@ -24,7 +24,8 @@ const {
   announcementBarCronJob
 }                        = require('./server/prismic');
 
-const { 
+const {
+  API_URL,
   PORT, 
   PROD, 
   REDIS_URL, 
@@ -33,7 +34,7 @@ const {
   WEB_CONCURRENCY
 } = require('./server/config');
 
-// start up paralell servers in prod
+// start up parallel servers in prod
 throng({
   workers: WEB_CONCURRENCY,
   lifetime: Infinity
@@ -87,8 +88,16 @@ function start() {
     app.use('/oauth', createProxyMiddleware({ target: 'https://staging.ionicframework.com', changeOrigin: true, secure: false }));
   }
 
-  // Proxy for api-wizard
-  app.use('/api/v1/wizard', createProxyMiddleware({ target: 'https://wizard-api.ionicframework.com', changeOrigin: true, secure: false}))
+  // Proxy for Appflow wizard
+  const wizardOptions = {
+    target: API_URL,
+    changeOrigin: true,
+    secure: false,
+    pathRewrite: {
+      '^/api/v1/wizard': '/apps/wizard/request',
+    }
+  };
+  app.use('/api/v1/wizard', createProxyMiddleware(wizardOptions));
   
   nunjucks.configure('server/pages', {
     express: app,

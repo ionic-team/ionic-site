@@ -294,6 +294,28 @@
       .cta-row {
         margin-block-end: 30px;
       }
+
+      .video-row {
+        max-width: 560px;
+
+        padding-bottom: 56.25%;
+        position: relative;
+        display: block;
+        width: 100%;
+
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        margin-block-end: 32px;
+
+        iframe {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+
+          top: 0;
+          left: 0;
+        }
+      }
     }
   }
 

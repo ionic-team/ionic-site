@@ -15,7 +15,7 @@ const path = require('path');
 const pkg = require('./package.json');
 const prefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('node-sass'));
 const uglify = require('gulp-uglify-es').default;
 
 var closureStart =

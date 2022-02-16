@@ -27,7 +27,7 @@ Ionic services our clients through the following products/services:
 
 -   Ionic Open Source Framework
     
--   Ionic Proprietary Software (AppFlow/Enterprise Native/Studio)
+-   Ionic Proprietary Software (Appflow/Enterprise Native/Studio)
     
 -   Ionic Advisory Services
     

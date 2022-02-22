@@ -33,9 +33,6 @@ const THEMES = [
 
 declare var window: any;
 
-// const apiUrl = path => `${path}`;
-const apiUrl = path => `https://wizard-api.ionicframework.com${path}`;
-
 const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
 
 @Component({
@@ -259,7 +256,7 @@ export class AppWizard {
       splash = renderedSplashScreen;
     }
 
-    const res = await fetch(apiUrl('/api/v1/wizard/create'), {
+    const res = await fetch('/api/v1/wizard/create', {
       body: JSON.stringify({
         type: this.framework,
         'package-id': this.bundleId,
@@ -293,7 +290,7 @@ export class AppWizard {
   }
 
   getApp = async () => {
-    const res = await fetch(apiUrl(`/api/v1/wizard/app/${this.getHubspotId()}`));
+    const res = await fetch(`/api/v1/wizard/app/${this.getHubspotId()}`);
 
     return await res.json();
   }

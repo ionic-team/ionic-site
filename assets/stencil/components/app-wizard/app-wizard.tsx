@@ -280,7 +280,7 @@ export class AppWizard {
       throw new Error(JSON.stringify({ type: 'too-large' }));
     }
 
-    if (res.status !== 200) {
+    if (res.status !== 201) {
       throw new Error(JSON.stringify({ type: 'error' }));
     }
 

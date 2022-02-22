@@ -164,7 +164,7 @@ module.exports = {
     .get('/verification/success', (_, res) => res.render('verification/success'))
     .get('/vue', (_, res) => res.render('vue'))
     .get('/angular', (_, res) => res.render('angular'))
-    .get('/what-is-ionic', (_, res) => res.render('what-is-ionic'))
+    .get('/what-is-ionic', (_, res) => res.redirect('https://ionic.io/resources/articles/what-is-ionic'))
 
     .get('/press/release/:year/:uid', (req, res, next) =>
       res.redirect('https://ionic.io/about/press/release/' + req.params.uid))

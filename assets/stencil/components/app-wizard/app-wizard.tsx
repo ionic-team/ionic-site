@@ -34,7 +34,7 @@ const THEMES = [
 declare var window: any;
 
 // const apiUrl = path => `${path}`;
-const apiUrl = path => `https://wizard-api.ionicframework.com${path}`;
+const apiUrl = path => `https://ionicframework.com${path}`;
 
 const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
 

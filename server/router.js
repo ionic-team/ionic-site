@@ -155,8 +155,7 @@ module.exports = {
     .get('/team', (_, res) => res.redirect('https://ionic.io/about'))
     .get('/tos', (_, res) => res.redirect('https://ionic.io/tos'))
     .get('/translate', (_, res) => res.render('translate'))
-    .get('/thank-you/:thankYou', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'thank_you', req.params['thankYou'], 'thank-you'))
+    .get('/thank-you/:slug', (req, res) => res.redirect(`https://ionic.io/thank-you/${req.params['slug']}`))
 
     .get('/trusted-partners', (_, res) => res.render('trusted-partners'))
     .get('/values', (_, res) => { res.render('values'); })

@@ -53,7 +53,7 @@ module.exports = {
 
     .get('/code-of-conduct', (_, res) => res.redirect('https://ionic.io/code-of-conduct'))
     .get('/community', (_, res) => res.redirect('https://ionic.io/community'))
-    .get('/contact', (_, res) => res.render('contact'))
+    .get('/contact', (_, res) => res.redirect('https://ionic.io/contact'))
     .get('/contributors', (_, res) => res.render('contributors'))
     .get('/covid-19', (_, res) => markdown(res, 'corona'))
     .get('/creator', (_, res) => res.render('creator/index'))

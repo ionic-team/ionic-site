@@ -1,0 +1,58 @@
+.announcement-bar {
+  background: #03060B url('/img/bg-announcement-bar.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 48px;
+
+  @media (max-width: $screen-xs-max) {
+    display: none;
+  }
+
+  svg {
+    margin-block-end: -6px;
+    margin-inline-end: 16px;
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+
+    letter-spacing: -0.01em;
+
+    color: #CED6E0;
+
+    em {
+      color: #fff;
+
+      font-style: normal;
+
+      font-weight: 500;
+    }
+  }
+
+  button {
+    color: #FFFFFF;
+
+    margin-inline-start: 16px;
+
+    border-radius: 1000px;
+    border: none;
+
+    padding: 4.5px 8px;
+
+    background: #434F5E;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.06);
+
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.02em;
+  }
+}

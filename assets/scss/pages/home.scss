@@ -3,6 +3,12 @@
 @import "../components/home_slides/index";
 @import "../components/home_slides/react-1";
 
+.modal {
+  transform: translateY(-50%) !important;
+  top: 50% !important;
+  overflow: visible !important;
+}
+
 .modal-dialog {
   width: 800px;
   max-width: calc(100% - 20px);

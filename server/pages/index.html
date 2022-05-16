@@ -415,36 +415,7 @@
   </section>
 
   {% include '_includes/promos/quad-cta.html' %}
-  <a data-toggle="modal" data-target="#ioniconf-modal" class="has-icon" id="ioniconf-modal-toggle"></a>
 </main>
-<aside>
-  <div class="modal collapse fade"
-     id="ioniconf-modal"
-     tabindex="-1"
-     role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body">
-          <button type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <div class="start">
-            <div class="overline">May 25 / 100% online / 100% Free</div>
-            <h2>Join us at Ioniconf 2022</h2>
-            <p>Ioniconf is Ionic's annual conference celebrating the future of cross-platform, the Web, and the makers behind it. <a href="https://ionic.io/ioniconf" target="_blank" rel="noopener">Register today,</a> for free.</p>
-            <a href="https://ionic.io/ioniconf" rel="noopener" target="_blank" class="button">Register Free <ion-icon name="arrow-forward-outline"></ion-icon></a>
-          </div>
-          <div class="end">
-            <img src="/img/homepage/bg-ioniconf-modal.png" width="320" height="460" alt="ioniconf background"/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</aside>
 {% endblock %}
 
 {% block scripts %}
@@ -642,21 +613,5 @@ const observer = new IntersectionObserver((entries) => {
 }, options);
 
 observer.observe(integrationsSec);
-</script>
-
-<script>
-window.addEventListener('load', () => {
-  const popup = localStorage.getItem('framework-ioniconf-popup');
-  if (popup) return;
-
-  localStorage.setItem('framework-ioniconf-popup', true);
-
-  setTimeout(() => {
-    const btn = document.querySelector('#ioniconf-modal-toggle');
-
-    btn.click();
-  }, 2000);
-})
-
 </script>
 {% endblock %}

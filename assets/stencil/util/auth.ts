@@ -43,8 +43,9 @@ export const login = async (email, password, source, loginEventId ="000006636951
       },
     });
 
-    if (ret.status === 401) {
-      throw 'Incorrect Email or Password';
+    if (ret.status !== 200) {
+      const responseJson = await ret.json();
+      throw responseJson?.error?.message || 'Unable to log in';
     }
 
     await ret.json();
@@ -57,7 +58,7 @@ export const login = async (email, password, source, loginEventId ="000006636951
     //return oauthAuthorize();
   } catch (e) {
     const reason = typeof e === 'string' ? e : '';
-    throw makeApiError('Unable to log in', e, reason);
+    throw makeApiError(reason || 'Unable to log in', e, reason);
   }
 }
 

@@ -29,12 +29,14 @@ export const login = async (email, password, source, loginEventId ="000006636951
       source = params.get("client_id");
     }
 
+    const recaptchaCode = await recaptcha('login');
     const ret = await fetch('/oauth/login', {
       method: 'POST',
       body: JSON.stringify({
         email,
         password,
-        source
+        source,
+        recaptcha: recaptchaCode
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -101,7 +103,7 @@ export const signup = async (form: SignupForm, source: string, signupEventId="00
     window.dataLayer.push({ event: 'sign_up' });
     identify(form.email);
     trackEvent({ id: signupEventId });
-    
+
     return data;
   } catch (e) {
     throw makeApiError('Unable to create account', e);

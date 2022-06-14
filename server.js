@@ -1,5 +1,5 @@
 require('dotenv').config({silent: true});
-  
+
 const express      = require('express');
 const compress     = require('compression');
 const cookieParser = require('cookie-parser');
@@ -15,21 +15,21 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const { handleNotFound } = require('./server/pageNotFound');
 const { router }         = require('./server/router');
 const tools              = require('./server/tools');
-const { 
-  checkForRedirects, 
+const {
+  checkForRedirects,
   loadLocalVars
 }                        = require('./server/processRequest');
-const { 
+const {
   prismicMiddleware,
   announcementBarCronJob
 }                        = require('./server/prismic');
 
 const {
   API_URL,
-  PORT, 
-  PROD, 
-  REDIS_URL, 
-  SENTRY_DSN, 
+  PORT,
+  PROD,
+  REDIS_URL,
+  SENTRY_DSN,
   SENTRY_ENVIRONMENT,
   WEB_CONCURRENCY
 } = require('./server/config');
@@ -43,16 +43,16 @@ throng({
 
 function start() {
   const app = express();
-  
+
   if (SENTRY_DSN) {
     Sentry.init({ dsn: SENTRY_DSN, environment: SENTRY_ENVIRONMENT });
   }
-  
+
   // rate limit POST requests
   if (REDIS_URL) {
     var redis   = require('redis').createClient(REDIS_URL);
     var limiter = require('express-limiter')(app, redis);
-  
+
     // rate limit POST requests
     limiter({
       path: '*',
@@ -63,7 +63,7 @@ function start() {
       expire: 1000 * 30
     })
   }
-  
+
   app.set('trust proxy', true);
   // The Sentry request handler must be the first middleware on the app
   app.use(Sentry.Handlers.requestHandler());
@@ -71,7 +71,7 @@ function start() {
   app.use(cookieParser());
   app.use(helmet());
   app.enable('etag');
-  
+
   app.use(checkForRedirects);
 
   // check if this is a valid static file
@@ -85,7 +85,11 @@ function start() {
 
   if (!PROD) {
     // Proxy for oauth when in dev mode
-    app.use('/oauth', createProxyMiddleware({ target: 'https://staging.ionicframework.com', changeOrigin: true, secure: false }));
+    app.use('/oauth', createProxyMiddleware({
+      target: API_URL || 'https://staging.ionicframework.com',
+      changeOrigin: true,
+      secure: false
+    }));
   }
 
   // Proxy for Appflow wizard
@@ -98,7 +102,7 @@ function start() {
     }
   };
   app.use('/api/v1/wizard', createProxyMiddleware(wizardOptions));
-  
+
   nunjucks.configure('server/pages', {
     express: app,
     noCache: !PROD,
@@ -107,18 +111,18 @@ function start() {
 
   app.set('views', path.resolve(__dirname, '/server/pages'));
   app.set('view engine', 'html');
-  
+
   app.use(router(app));
-  
+
   // The Sentry error handler must be before any other error middleware
   app.use(Sentry.Handlers.errorHandler());
-  
+
   app.use(handleNotFound);
 
   // bind the app to listen for connections on a specified port
   app.listen(PORT, function() {
     console.log('Listening on port ' + PORT);
     // 5 min delay for heroku rolling start to complete
-    setTimeout(tools.bustCloudflareCache, 1000 * 60 * 5); 
+    setTimeout(tools.bustCloudflareCache, 1000 * 60 * 5);
   });
 } // end start()

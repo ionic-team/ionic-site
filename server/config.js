@@ -43,7 +43,7 @@ module.exports = {
 
   HUBSPOT_API_KEY: process.env.HUBSPOT_API_KEY || null,
 
-  PRISMIC_ENDPOINT: process.env.PRISMIC_ENDPOINT || 
+  PRISMIC_ENDPOINT: process.env.PRISMIC_ENDPOINT ||
     'https://ionicframeworkcom.prismic.io/api/v2',
   PRISMIC_PREVIEW: bool(process.env.PRISMIC_PREVIEW) || false,
 

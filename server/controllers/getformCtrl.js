@@ -3,7 +3,7 @@ const Sentry    = require('@sentry/node');
 
 module.exports = async function(req, res) {
   const Hubspot = require('hubspot');
-  const hs = new Hubspot({ apiKey: config.HUBSPOT_API_KEY });
+  const hs = new Hubspot({ accessToken: config.HUBSPOT_ACCESS_TOKEN });
   
   try {
     const form = await hs.forms.getById(req.params.formId);

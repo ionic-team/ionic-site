@@ -1,6 +1,6 @@
 const config    = require('../config');
 const Hubspot = require('hubspot');
-const hs = new Hubspot({ apiKey: config.HUBSPOT_API_KEY });
+const hs = new Hubspot({ accessToken: config.HUBSPOT_ACCESS_TOKEN });
 
 module.exports = async function(req, res) {
 

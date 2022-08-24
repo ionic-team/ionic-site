@@ -18,6 +18,6 @@ module.exports = async function(req, res) {
 
 
   } catch (e) {
-    res.json(e);
+    res.status(e.statusCode).json(e.error);
   }
 }

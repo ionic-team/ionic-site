@@ -17,6 +17,7 @@ export class IonicLoginForm {
     email: "",
     password: "",
   };
+  @State() clientId = "";
 
   async handleLogin() {
     window.localStorage.removeItem(SSO_ID_KEY);
@@ -77,6 +78,7 @@ export class IonicLoginForm {
 
   componentWillLoad() {
     const params = new URLSearchParams(window.location.search);
+    this.clientId = params.get("client_id");
     if (params.has("error_description")) {
       this.formErrorMap = { _form: params.get("error_description") };
     }
@@ -146,6 +148,13 @@ export class IonicLoginForm {
               Sign up
             </a>
           </p>
+          {this.clientId == "zendesk" ? (
+            <p>
+              <a href={`https://ionic.zendesk.com/access/normal`} title="Zendesk">
+                Log in with Zendesk account
+              </a>
+            </p>
+          ) : null}
         </div>
       </section>
     );

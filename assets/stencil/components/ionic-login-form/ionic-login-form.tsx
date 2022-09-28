@@ -17,7 +17,7 @@ export class IonicLoginForm {
     email: "",
     password: "",
   };
-  @State() clientId = "";
+  @State() clientId: string = "";
 
   async handleLogin() {
     window.localStorage.removeItem(SSO_ID_KEY);
@@ -103,7 +103,7 @@ export class IonicLoginForm {
             {this.formErrorMap._form}
           </FormErrors>
         ) : null}
-        <ionic-social-auth></ionic-social-auth>
+        <ionic-social-auth clientId={this.clientId}></ionic-social-auth>
         <form class="hide-password Bizible-Exclude" id="login-form" role="form" onSubmit={this.handleSubmit}>
           <ui-floating-input
             type="text"
@@ -148,13 +148,6 @@ export class IonicLoginForm {
               Sign up
             </a>
           </p>
-          {this.clientId == "zendesk" ? (
-            <p>
-              <a href={`https://ionic.zendesk.com/access/normal`} title="Zendesk">
-                Log in with Zendesk account
-              </a>
-            </p>
-          ) : null}
         </div>
       </section>
     );

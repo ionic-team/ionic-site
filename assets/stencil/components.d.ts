@@ -103,6 +103,7 @@ export namespace Components {
     interface IonicSnapBar {
     }
     interface IonicSocialAuth {
+        "clientId": string;
     }
     interface IonicSubHeader {
         "darkMode": boolean;
@@ -509,6 +510,7 @@ declare namespace LocalJSX {
     interface IonicSnapBar {
     }
     interface IonicSocialAuth {
+        "clientId"?: string;
     }
     interface IonicSubHeader {
         "darkMode"?: boolean;

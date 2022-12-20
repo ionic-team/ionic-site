@@ -161,6 +161,14 @@ export class AppWizard {
   }
 
   authorize = () => {
+    const currentOrigin = window.location.origin.toLowerCase();
+    const urlBase =
+      currentOrigin.indexOf("staging.ionicframework.com") > -1
+        ? "https://staging.ionic.io"
+        : currentOrigin.indexOf("ionicframework.com") > -1
+        ? "https://ionic.io"
+        : "http://localhost:5001";
+
     if (this.authParams.get('client_id') !== 'cli') {
       const params = new URLSearchParams();
       params.set("scope", "openid profile email");
@@ -170,12 +178,12 @@ export class AppWizard {
       params.set("state", this.appId || '');
       params.set("nonce", Math.random().toString(36).substring(2));
       params.set("source", "wizard-1");
-      window.location.assign(`/signup?${params.toString()}`);
+      window.location.assign(`${urlBase}/signup?${params.toString()}`);
     } else {
       const path = this.user ? 'oauth/authorize' : 'signup';
       this.authParams.set("state", this.appId || '');
       this.authParams.set("source", "cli-start-wizard");
-      window.location.assign(`/${path}?${this.authParams.toString()}`);
+      window.location.assign(`${urlBase}/${path}?${this.authParams.toString()}`);
     }
   };
 

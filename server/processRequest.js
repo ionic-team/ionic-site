@@ -10,10 +10,6 @@ require('./tools').getTwitterProfile().then(user => {
   followerCount = user ? user.followers_count : null
 });
 
-// get the latest blog post info
-const lbs = require('./services/latestBlog');
-lbs.getLatestPost();
-
 module.exports = {
   checkForRedirects: (req, res, next) => {
     var uri = req.url.split(/[\?|#]/g);
@@ -80,7 +76,6 @@ module.exports = {
       trustedPartners: shuffle(trustedPartners),
       frameworkInfo: frameworkInfo,
       user: await getUser(req)
-      // latestBlog: lbs.getLatestPost()
     });
 
 

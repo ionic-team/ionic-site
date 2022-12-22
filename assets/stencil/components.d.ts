@@ -6,7 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TabType } from "./components/angular-components/angular-components";
-import { SignupForm } from "./util/auth";
 import { TabType as TabType1 } from "./components/react-capacitor/react-capacitor";
 import { TabType as TabType2 } from "./components/react-components/react-components";
 import { TabType as TabType3 } from "./components/vue-components/vue-components";
@@ -63,8 +62,6 @@ export namespace Components {
         "open": boolean;
         "openEvent": MouseEvent;
     }
-    interface IonicLoginForm {
-    }
     interface IonicNewsletterSignup {
         "arrowMode": boolean;
         "buttonText": string;
@@ -75,35 +72,14 @@ export namespace Components {
         "placeholder": string;
         "srLabel": { id: string; text: string; };
     }
-    interface IonicQuickSignup {
-        "buttonColor": string;
-        "showPricingNotice": boolean;
-        "transparentInput": boolean;
-    }
     interface IonicReactDemo {
     }
     interface IonicSearch {
         "mobile": boolean;
     }
-    interface IonicSignupForm {
-        "allowLogin": boolean;
-        "allowSocial": boolean;
-        "buttonText": string;
-        "gaEventLabel": any;
-        "gaEventName": any;
-        "heading": string;
-        "hubspotEventId": string;
-        "message": boolean;
-        "oauthRedirect": boolean;
-        "source": any;
-        "subheading": string;
-    }
     interface IonicSlider {
     }
     interface IonicSnapBar {
-    }
-    interface IonicSocialAuth {
-        "clientId": string;
     }
     interface IonicSubHeader {
         "darkMode": boolean;
@@ -253,23 +229,11 @@ declare global {
         prototype: HTMLIonicEmojiPickerElement;
         new (): HTMLIonicEmojiPickerElement;
     };
-    interface HTMLIonicLoginFormElement extends Components.IonicLoginForm, HTMLStencilElement {
-    }
-    var HTMLIonicLoginFormElement: {
-        prototype: HTMLIonicLoginFormElement;
-        new (): HTMLIonicLoginFormElement;
-    };
     interface HTMLIonicNewsletterSignupElement extends Components.IonicNewsletterSignup, HTMLStencilElement {
     }
     var HTMLIonicNewsletterSignupElement: {
         prototype: HTMLIonicNewsletterSignupElement;
         new (): HTMLIonicNewsletterSignupElement;
-    };
-    interface HTMLIonicQuickSignupElement extends Components.IonicQuickSignup, HTMLStencilElement {
-    }
-    var HTMLIonicQuickSignupElement: {
-        prototype: HTMLIonicQuickSignupElement;
-        new (): HTMLIonicQuickSignupElement;
     };
     interface HTMLIonicReactDemoElement extends Components.IonicReactDemo, HTMLStencilElement {
     }
@@ -283,12 +247,6 @@ declare global {
         prototype: HTMLIonicSearchElement;
         new (): HTMLIonicSearchElement;
     };
-    interface HTMLIonicSignupFormElement extends Components.IonicSignupForm, HTMLStencilElement {
-    }
-    var HTMLIonicSignupFormElement: {
-        prototype: HTMLIonicSignupFormElement;
-        new (): HTMLIonicSignupFormElement;
-    };
     interface HTMLIonicSliderElement extends Components.IonicSlider, HTMLStencilElement {
     }
     var HTMLIonicSliderElement: {
@@ -300,12 +258,6 @@ declare global {
     var HTMLIonicSnapBarElement: {
         prototype: HTMLIonicSnapBarElement;
         new (): HTMLIonicSnapBarElement;
-    };
-    interface HTMLIonicSocialAuthElement extends Components.IonicSocialAuth, HTMLStencilElement {
-    }
-    var HTMLIonicSocialAuthElement: {
-        prototype: HTMLIonicSocialAuthElement;
-        new (): HTMLIonicSocialAuthElement;
     };
     interface HTMLIonicSubHeaderElement extends Components.IonicSubHeader, HTMLStencilElement {
     }
@@ -390,15 +342,11 @@ declare global {
         "ionic-bar-chart": HTMLIonicBarChartElement;
         "ionic-button": HTMLIonicButtonElement;
         "ionic-emoji-picker": HTMLIonicEmojiPickerElement;
-        "ionic-login-form": HTMLIonicLoginFormElement;
         "ionic-newsletter-signup": HTMLIonicNewsletterSignupElement;
-        "ionic-quick-signup": HTMLIonicQuickSignupElement;
         "ionic-react-demo": HTMLIonicReactDemoElement;
         "ionic-search": HTMLIonicSearchElement;
-        "ionic-signup-form": HTMLIonicSignupFormElement;
         "ionic-slider": HTMLIonicSliderElement;
         "ionic-snap-bar": HTMLIonicSnapBarElement;
-        "ionic-social-auth": HTMLIonicSocialAuthElement;
         "ionic-sub-header": HTMLIonicSubHeaderElement;
         "ionic-switcher": HTMLIonicSwitcherElement;
         "ionic-toggle": HTMLIonicToggleElement;
@@ -468,8 +416,6 @@ declare namespace LocalJSX {
         "open"?: boolean;
         "openEvent"?: MouseEvent;
     }
-    interface IonicLoginForm {
-    }
     interface IonicNewsletterSignup {
         "arrowMode"?: boolean;
         "buttonText"?: string;
@@ -480,37 +426,14 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "srLabel"?: { id: string; text: string; };
     }
-    interface IonicQuickSignup {
-        "buttonColor"?: string;
-        "showPricingNotice"?: boolean;
-        "transparentInput"?: boolean;
-    }
     interface IonicReactDemo {
     }
     interface IonicSearch {
         "mobile"?: boolean;
     }
-    interface IonicSignupForm {
-        "allowLogin"?: boolean;
-        "allowSocial"?: boolean;
-        "buttonText"?: string;
-        "gaEventLabel"?: any;
-        "gaEventName"?: any;
-        "heading"?: string;
-        "hubspotEventId"?: string;
-        "message"?: boolean;
-        "oauthRedirect"?: boolean;
-        "onLoginInstead"?: (event: CustomEvent<void>) => void;
-        "onSignedUp"?: (event: CustomEvent<SignupForm>) => void;
-        "source"?: any;
-        "subheading"?: string;
-    }
     interface IonicSlider {
     }
     interface IonicSnapBar {
-    }
-    interface IonicSocialAuth {
-        "clientId"?: string;
     }
     interface IonicSubHeader {
         "darkMode"?: boolean;
@@ -575,15 +498,11 @@ declare namespace LocalJSX {
         "ionic-bar-chart": IonicBarChart;
         "ionic-button": IonicButton;
         "ionic-emoji-picker": IonicEmojiPicker;
-        "ionic-login-form": IonicLoginForm;
         "ionic-newsletter-signup": IonicNewsletterSignup;
-        "ionic-quick-signup": IonicQuickSignup;
         "ionic-react-demo": IonicReactDemo;
         "ionic-search": IonicSearch;
-        "ionic-signup-form": IonicSignupForm;
         "ionic-slider": IonicSlider;
         "ionic-snap-bar": IonicSnapBar;
-        "ionic-social-auth": IonicSocialAuth;
         "ionic-sub-header": IonicSubHeader;
         "ionic-switcher": IonicSwitcher;
         "ionic-toggle": IonicToggle;
@@ -617,15 +536,11 @@ declare module "@stencil/core" {
             "ionic-bar-chart": LocalJSX.IonicBarChart & JSXBase.HTMLAttributes<HTMLIonicBarChartElement>;
             "ionic-button": LocalJSX.IonicButton & JSXBase.HTMLAttributes<HTMLIonicButtonElement>;
             "ionic-emoji-picker": LocalJSX.IonicEmojiPicker & JSXBase.HTMLAttributes<HTMLIonicEmojiPickerElement>;
-            "ionic-login-form": LocalJSX.IonicLoginForm & JSXBase.HTMLAttributes<HTMLIonicLoginFormElement>;
             "ionic-newsletter-signup": LocalJSX.IonicNewsletterSignup & JSXBase.HTMLAttributes<HTMLIonicNewsletterSignupElement>;
-            "ionic-quick-signup": LocalJSX.IonicQuickSignup & JSXBase.HTMLAttributes<HTMLIonicQuickSignupElement>;
             "ionic-react-demo": LocalJSX.IonicReactDemo & JSXBase.HTMLAttributes<HTMLIonicReactDemoElement>;
             "ionic-search": LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
-            "ionic-signup-form": LocalJSX.IonicSignupForm & JSXBase.HTMLAttributes<HTMLIonicSignupFormElement>;
             "ionic-slider": LocalJSX.IonicSlider & JSXBase.HTMLAttributes<HTMLIonicSliderElement>;
             "ionic-snap-bar": LocalJSX.IonicSnapBar & JSXBase.HTMLAttributes<HTMLIonicSnapBarElement>;
-            "ionic-social-auth": LocalJSX.IonicSocialAuth & JSXBase.HTMLAttributes<HTMLIonicSocialAuthElement>;
             "ionic-sub-header": LocalJSX.IonicSubHeader & JSXBase.HTMLAttributes<HTMLIonicSubHeaderElement>;
             "ionic-switcher": LocalJSX.IonicSwitcher & JSXBase.HTMLAttributes<HTMLIonicSwitcherElement>;
             "ionic-toggle": LocalJSX.IonicToggle & JSXBase.HTMLAttributes<HTMLIonicToggleElement>;

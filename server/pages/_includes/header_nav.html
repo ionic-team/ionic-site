@@ -203,20 +203,11 @@
   </a>
 </li>
 
-{% if user %}
-  <li class="sm-hide">
-    <a href="/logout">Log out</a>
-  </li>
-  <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
-    <a href="{{ DASHBOARD_URL }}" id="btn-header-dashboard">Dashboard</a>
-  </li>
-  {% else %}
-  <li class="sm-hide">
-    <a href="/login?source=framework-{{id | default(id, 'default', true)}}">
-      Log in</a>
-  </li>
-  <li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
-    <a href="/start"
-       id="btn-header-sign-up">Get Started</a>
-  </li>
-{% endif %}
+<li class="sm-hide">
+  <a href="/login?source=framework-{{id | default(id, 'default', true)}}">
+    Log in</a>
+</li>
+<li class="header-btn-white{% if header_style.indexOf('light') != -1 %} blue{% endif %} ">
+  <a href="/start"
+     id="btn-header-sign-up">Get Started</a>
+</li>

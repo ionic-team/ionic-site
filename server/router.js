@@ -104,8 +104,6 @@ module.exports = {
 
     .get('/ioniconf-2020', (_, res) => res.render('ioniconf-2020'))
     .get('/jobs', (_, res) => res.render('jobs'))
-    .get('/login', (_, res) => res.render('login'))
-    .get('/logout', (_, res) => res.render('logout'))
     .get('/native', (_, res) => res.render('native'))
     .get('/press', (_, res) => res.redirect('https://ionic.io/about/press'))
     .get('/pricing', (_, res) => res.redirect('https://ionic.io/pricing'))
@@ -142,7 +140,6 @@ module.exports = {
       getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
 
     .get('/sales', (_, res) => res.render('sales'))
-    .get('/signup', (_, res) => res.render('signup'))
     .get('/soon', (_, res) => res.redirect('https://ionicframework.com/ioniconf'))
     .get('/start', (_, res) => res.render('start'))
     .get('/startups', (_, res) => res.redirect('https://ionic.io/startups'))

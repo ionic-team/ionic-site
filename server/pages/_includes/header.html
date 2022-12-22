@@ -60,49 +60,7 @@ announcementBar %}
           </ionic-search>
         </li>
 
-        {# {% if user %}
-        <li class="sm-hide">
-          <a href="/logout">Log out</a>
-        </li>
-        <li
-          class="
-            header-btn-white{%
-            if
-            header_style.indexOf('light')
-            !=
-            -1
-            %}
-            blue{%
-            endif
-            %}
-          "
-        >
-          <a href="{{ DASHBOARD_URL }}" id="btn-header-dashboard">Dashboard</a>
-        </li>
-        {% else %}
-        <li class="sm-hide">
-          <a
-            href="/login?source=framework-{{id | default(id, 'default', true)}}"
-          >
-            Log in</a
-          >
-        </li>
-        <li
-          class="
-            header-btn-white{%
-            if
-            header_style.indexOf('light')
-            !=
-            -1
-            %}
-            blue{%
-            endif
-            %}
-          "
-        >
-          <a href="/getting-started" id="btn-header-sign-up">Get Started</a>
-        </li>
-        {% endif %} #} {% include '_includes/header_nav.html' %}
+        {% include '_includes/header_nav.html' %}
       </ul>
       {#
       <ul class="nav navbar-nav navbar">

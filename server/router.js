@@ -4,15 +4,13 @@ const bp = require('body-parser');
 const markdown = require('./markdown');
 const es = require('express-sanitizer');
 
-const { getPrismicAPI, getSingle, getPrismic, previewController } = require('./prismic');
+const { previewController } = require('./prismic');
 
-const { getIntegrations, getIntegration } = require('./controllers/integrations');
 const contactCtrl = require('./controllers/contactCtrl');
 const getformCtrl = require('./controllers/getformCtrl');
 const hsblockedCtrl = require('./controllers/hsblockedCtrl');
 const hsconvertedCtrl = require('./controllers/hsconvertedCtrl');
 const newsletterCtrl = require('./controllers/newsletterCtrl');
-const trustedPartnersCtrl = require('./controllers/trustedPartnersCtrl');
 const viewCtrl = require('./controllers/viewCtrl');
 
 module.exports = {
@@ -40,11 +38,6 @@ module.exports = {
     // });
 
     // normal pages
-    .get('/', (_, res) => res.render('index'))
-
-    .get('/advisory', (_, res) => res.render('products/advisory'))
-    .get('/appflow', (_, res) => res.render('products/appflow'))
-
     .get('/contributors', (_, res) => res.render('contributors'))
     .get('/covid-19', (_, res) => markdown(res, 'corona'))
     .get('/creator', (_, res) => res.render('creator/index'))
@@ -53,13 +46,10 @@ module.exports = {
     .get('/ds', (_, res) => res.render('ds'))
 
     .get('/early-access', (_, res) => res.render('early-access'))
-    .get('/enterprise/platform', (_, res) => res.render('enterprise/platform'))
 
     .get('/enterprise/solutions', (_, res) => res.render('enterprise/solutions/index'))
     .get('/enterprise/solutions/cross-platform', (_, res) => res.render('enterprise/solutions/cross-platform'))
 
-    .get('/framework', (_, res) => res.render('framework'))
-    .get('/getting-started', (_, res) => res.render('getting-started'))
     .get('/getting-started-with-ionic-vue', (_, res) => res.render('getting-started-with-ionic-vue'))
 
     .get('/go/pwa-architects-guide', (_, res) =>
@@ -73,38 +63,13 @@ module.exports = {
     .post('/go/why-hybrid', (_, res) => res.render('go/why-hybrid/thank-you'))
     .get('/go/why-hybrid/thank-you', (_, res) => res.render('go/why-hybrid/thank-you'))
 
-    .get('/humans.txt', (_, res) => res.type('txt').render('humans'))
-
     .get('/ioniconf-2020', (_, res) => res.render('ioniconf-2020'))
-    .get('/jobs', (_, res) => res.render('jobs'))
     .get('/native', (_, res) => res.render('native'))
 
     .get('/pro/contact', (_, res) => res.render('pro/contact'))
-    .get('/pro/deploy', (_, res) => res.render('pro/deploy'))
-    .get('/pro/package', (_, res) => res.render('pro/package'))
 
     .get('/react', (_, res) => res.render('react'))
 
-    .get('/resources', (_, res) =>
-      res.render('resources/index', {currentCategory: 'featured'}))
-    .get('/resources/:category', (req, res) =>
-      res.render('resources/category', {currentCategory: req.params.category}))
-    .get('/resources/articles/:article', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'article', req.params.article, 'resources/article'))
-    .get('/resources/case-studies/:caseStudy', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'case_study', req.params['caseStudy'], 'resources/case-studies'))
-    .get('/resources/customer-interviews/:customerInterview', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'customer_story', req.params['customerInterview'], 'resources/customer-stories'))
-    .get('/resources/podcasts/:podcast', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'podcast', req.params.podcast, 'resources/podcasts'))
-    .get('/resources/videos/:video', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'video', req.params.video, 'resources/videos'))
-    .get('/resources/webinars/:webinar', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'webinar', req.params.webinar, 'resources/webinars'))
-    .get('/resources/whitepapers/:whitepaper', getPrismicAPI, (req, res, next) =>
-      getPrismic(req, res, next, 'whitepaper', req.params.whitepaper, 'resources/whitepapers'))
-
-    .get('/sales', (_, res) => res.render('sales'))
     .get('/start', (_, res) => res.render('start'))
     .get('/stencil-jamstack2021', (_, res) => res.render('stencil-jamstack2021'))
     .get('/subscribe', (_, res) => res.render('subscribe'))
@@ -113,7 +78,6 @@ module.exports = {
     .get('/survey/2020', (_, res) => res.render('survey/2020'))
     .get('/translate', (_, res) => res.render('translate'))
 
-    .get('/trusted-partners', (_, res) => res.render('trusted-partners'))
     .get('/values', (_, res) => { res.render('values'); })
     .get('/verification/failed', (_, res) => res.render('verification/failed'))
     .get('/verification/success', (_, res) => res.render('verification/success'))

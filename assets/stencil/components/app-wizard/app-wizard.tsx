@@ -33,7 +33,7 @@ const THEMES = [
 
 declare var window: any;
 
-const emojiSvg = image => `https://twemoji.maxcdn.com/v/latest/svg/${image}.svg`;
+const emojiSvg = image => `https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/${image}.svg`;
 
 @Component({
   tag: 'ionic-app-wizard',

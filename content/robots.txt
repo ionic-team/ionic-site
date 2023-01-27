@@ -1,16 +1,16 @@
 User-Agent: *
 Crawl-delay: 0.5
 
-Disallow: /docs//demos
-Disallow: /docs/pages/theming/color-generator
-Disallow: /docs/v3/demos/
-Disallow: /docs/v3/dist/
-Disallow: /present-ionic/slides/
 Disallow: /dist/
+Disallow: /docs//demos
 Disallow: /docs/es/
 Disallow: /docs/fr/
+Disallow: /docs/pages/theming/color-generator
 Disallow: /docs/pt/
+Disallow: /docs/v3/demos/
+Disallow: /docs/v3/dist/
 Disallow: /docs/zh/
+Disallow: /present-ionic/slides/
 
 Sitemap: https://ionicframework.com/sitemap.xml
 Sitemap: https://ionicframework.com/docs/sitemap.xml

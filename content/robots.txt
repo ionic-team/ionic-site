@@ -1,5 +1,4 @@
 User-Agent: *
-Crawl-delay: 0.5
 
 Disallow: /dist/
 Disallow: /docs//demos
@@ -11,6 +10,7 @@ Disallow: /docs/v1
 Disallow: /docs/v2
 Disallow: /docs/v3
 Disallow: /docs/v4
+Disallow: /docs/v5
 Disallow: /docs/zh/
 Disallow: /present-ionic/slides/
 

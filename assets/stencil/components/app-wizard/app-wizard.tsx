@@ -569,7 +569,7 @@ ionic start --start-id ${this.appId}
         </div>
         <div class="notice notice--fixed">
           Prefer to install manually? <br />
-          <a href="https://ionicframework.com/getting-started#install">Follow our CLI installation guide</a>
+          <a href="https://ionicframework.com/docs/intro/cli">Follow our CLI installation guide</a>
         </div>
       </div>
     );

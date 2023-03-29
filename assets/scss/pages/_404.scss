@@ -1,14 +1,33 @@
 .page-404 .four-oh-four {
+  min-height: calc(100vh - 64px);
+
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+
+  padding-block-start: 64px;
+  padding-block-end: 64px;
+
+  h2 {
+    margin-block-end: 32px;
+  }
 
   img {
     width: 100%;
     max-width: 336px;
+
+    margin-block-end: 6rem;
   }
 
   p {
     color: $grey;
     font-size: 18px;
+
+    margin-block-end: 2rem;
   }
 
   a {

@@ -5,6 +5,6 @@
   "js": [
     "node_modules/jquery/dist/jquery.slim.min.js",
     "node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js",
-    "node_modules/typed.js/lib/typed.min.js"
+    "node_modules/typed.js/dist/typed.umd.js"
   ]
 }

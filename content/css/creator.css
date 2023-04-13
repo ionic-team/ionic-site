@@ -108,20 +108,6 @@
   unicode-range: U+000-5FF;
   src: url("https://code.ionicframework.com/assets/fonts/inter/Inter-BlackItalic.woff2") format("woff2"), url("https://code.ionicframework.com/assets/fonts/inter/Inter-BlackItalic.woff") format("woff"); }
 
-@font-face {
-  font-family: 'FreightTextPro';
-  font-weight: 400;
-  unicode-range: U+000-5FF;
-  src: url("https://code.ionicframework.com/assets/fonts/29D26A_0_0.eot");
-  src: url("https://code.ionicframework.com/assets/fonts/29D26A_0_0.eot?#iefix") format("embedded-opentype"), url("https://code.ionicframework.com/assets/fonts/29D26A_0_0.woff") format("woff"), url("https://code.ionicframework.com/assets/fonts/29D26A_0_0.ttf") format("truetype"); }
-
-@font-face {
-  font-family: 'FreightTextPro';
-  font-weight: 500;
-  unicode-range: U+000-5FF;
-  src: url("https://code.ionicframework.com/assets/fonts/29D26A_1_0.eot");
-  src: url("https://code.ionicframework.com/assets/fonts/29D26A_1_0.eot?#iefix") format("embedded-opentype"), url("https://code.ionicframework.com/assets/fonts/29D26A_1_0.woff") format("woff"), url("https://code.ionicframework.com/assets/fonts/29D26A_1_0.ttf") format("truetype"); }
-
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;

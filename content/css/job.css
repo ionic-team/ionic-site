@@ -37,15 +37,6 @@
 
 @font-face {font-family: 'AvenirNextLTPro-UltLt';src: url('https://code.ionicframework.com/assets/fonts/29CC36_0_0.eot');src: url('https://code.ionicframework.com/assets/fonts/29CC36_0_0.eot?#iefix') format('embedded-opentype'),url('https://code.ionicframework.com/assets/fonts/29CC36_0_0.woff') format('woff'),url('https://code.ionicframework.com/assets/fonts/29CC36_0_0.ttf') format('truetype');}
 
-
-
-
-/* Frieght Text Pro */
-
-@font-face {font-family: 'FreightTextProBook-Regular';src: url('https://code.ionicframework.com/assets/fonts/29D26A_0_0.eot');src: url('https://code.ionicframework.com/assets/fonts/29D26A_0_0.eot?#iefix') format('embedded-opentype'),url('https://code.ionicframework.com/assets/fonts/29D26A_0_0.woff') format('woff'),url('https://code.ionicframework.com/assets/fonts/29D26A_0_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'FreightTextProMedium-Regular';src: url('https://code.ionicframework.com/assets/fonts/29D26A_1_0.eot');src: url('https://code.ionicframework.com/assets/fonts/29D26A_1_0.eot?#iefix') format('embedded-opentype'),url('https://code.ionicframework.com/assets/fonts/29D26A_1_0.woff') format('woff'),url('https://code.ionicframework.com/assets/fonts/29D26A_1_0.ttf') format('truetype');}
  
 #job {
 }

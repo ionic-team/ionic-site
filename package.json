@@ -78,7 +78,7 @@
     "ionicons": "5.2.0",
     "jquery": "3.5.0",
     "jsforce": "1.9.3",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "marked": "^0.8.0",
     "moment": "^2.24.0",
     "node-sass": "^7.0.1",

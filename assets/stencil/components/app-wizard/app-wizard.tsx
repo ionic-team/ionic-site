@@ -16,7 +16,7 @@ const TEMPLATES = [
 
 const FRAMEWORKS = [
   { name: 'React', id: 'react' },
-  { name: 'Angular', id: 'angular' },
+  { name: 'Angular', id: 'angular-standalone' },
   { name: 'Vue', id: 'vue' },
 ]
 
